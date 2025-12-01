@@ -103,18 +103,18 @@ export default function TradespersonReview() {
       return;
     }
 
-    navigate("/tradesperson/submitted");
+    router.push("/tradesperson-submitted");
   };
 
   const handleEditTrade = () => {
-    navigate("/join-as-tradesperson");
+    router.push("/join-as-tradesperson");
   };
 
   const handleEditBusiness = () => {
     const tradeQuery = application?.tradeSlug
       ? `?trade=${encodeURIComponent(application.tradeSlug)}`
       : "";
-    navigate(`/tradesperson/details${tradeQuery}`);
+    navigate(`/tradesperson-details${tradeQuery}`);
   };
 
   const handleBack = () => {

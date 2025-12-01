@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "Hire verified electricians, plumbers, and other tradespeople on the Costa del Sol. Get instant quotes and book appointments online.",
   icons: {
-    icon: "https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F688e3adc2cd64e55bc8c864b62a74a4a?format=webp&width=128",
+    icon: "/images/logo.webp",
   },
   openGraph: {
     title: "CostaTrades - Find Trusted Specialists on the Costa del Sol",

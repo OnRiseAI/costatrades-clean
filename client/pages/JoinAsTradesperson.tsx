@@ -141,7 +141,7 @@ export default function JoinAsTradesperson() {
     HERO_TRADES.find((trade) => trade.slug === selectedTradeSlug)?.label || "";
 
   const goToDetails = (tradeSlug: string) => {
-    navigate(`/tradesperson/details?trade=${encodeURIComponent(tradeSlug)}`);
+    router.push(`/tradesperson-details?trade=${encodeURIComponent(tradeSlug)}`);
   };
 
   const handleGoClick = () => {

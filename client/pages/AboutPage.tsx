@@ -34,7 +34,7 @@ export default function AboutPage() {
       <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F964f2a624f4c449f9c4ca390ffab21c8?format=webp&width=800"
+            src="/images/about-hero.webp"
             alt="Sunny Mediterranean city pier view"
             className="w-full h-full object-cover"
           />
@@ -290,7 +290,7 @@ export default function AboutPage() {
               <div className="grid grid-cols-2 gap-6">
                 <div className="space-y-6 translate-y-12">
                   <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2Fa37c88abad5c48feb45d83e5b15c60fc?format=webp&width=800"
+                    src="/images/about-team-1.webp"
                     alt="Luxury villa terrace with ocean view"
                     className="rounded-2xl shadow-2xl w-full h-64 object-cover hover:scale-[1.02] transition-transform duration-500 border border-white/10"
                   />
@@ -307,7 +307,7 @@ export default function AboutPage() {
                     <div className="text-sm text-blue-100">Verified Trades</div>
                   </div>
                   <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F9cecb7dfb8784f9aa6451e19d5a3ce79?format=webp&width=800"
+                    src="/images/about-team-2.webp"
                     alt="Modern minimalist apartment buildings"
                     className="rounded-2xl shadow-2xl w-full h-64 object-cover hover:scale-[1.02] transition-transform duration-500 border border-white/10"
                   />

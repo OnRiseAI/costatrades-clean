@@ -148,7 +148,7 @@ export default function TradespersonDashboard() {
 
   const handleSignOut = async () => {
     await signOut();
-    navigate("/");
+    router.push("/");
   };
 
   const renderSidebar = () => (
