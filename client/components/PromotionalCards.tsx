@@ -74,7 +74,7 @@ export function PromotionalCards() {
             {/* Background image overlay */}
             <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F8c4b96203842490c8f4cd693556ddf1e?format=webp&width=800"
+                src="/images/promo.webp"
                 alt="Home products"
                 className="w-full h-full object-cover"
               />

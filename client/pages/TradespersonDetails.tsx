@@ -222,7 +222,7 @@ export default function TradespersonDetails() {
       JSON.stringify(application),
     );
 
-    navigate("/tradesperson/review");
+    router.push("/tradesperson-review");
   };
 
   const getRadiusInMeters = (radiusStr: string) => {

@@ -54,7 +54,7 @@ export default function RequestQuote({ tradespersonSlug }: RequestQuoteProps) {
             {/* Hero Image */}
             <div className="relative w-full h-40 md:h-48 overflow-hidden">
               <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F89158a6460c14463b735f35d53a4b21a?format=webp&width=800"
+                src="/images/quote.webp"
                 alt="Construction tools"
                 className="w-full h-full object-cover"
               />

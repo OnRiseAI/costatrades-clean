@@ -52,7 +52,7 @@ export default function Tradespeople() {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      navigate("/login");
+      router.push("/login");
       return;
     }
 
@@ -118,7 +118,7 @@ export default function Tradespeople() {
 
   const handleSignOut = async () => {
     await signOut();
-    navigate("/");
+    router.push("/");
   };
 
   if (loading) {
@@ -372,7 +372,7 @@ export default function Tradespeople() {
               <div className="bg-white rounded-lg p-6 shadow-sm">
                 <h3 className="text-lg font-bold mb-4">Recent Opportunities</h3>
                 <Button
-                  onClick={() => navigate("/view-jobs")}
+                  onClick={() => router.push("/view-jobs")}
                   className="w-full bg-primary hover:bg-primary/90"
                 >
                   View Available Jobs
@@ -385,7 +385,7 @@ export default function Tradespeople() {
             <p className="text-muted-foreground mb-6">
               No specialist profile found. Please contact support.
             </p>
-            <Button onClick={() => navigate("/")}>Go Home</Button>
+            <Button onClick={() => router.push("/")}>Go Home</Button>
           </div>
         )}
       </div>

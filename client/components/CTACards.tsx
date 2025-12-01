@@ -15,7 +15,7 @@ export function CTACards() {
       buttonText: "Leave a review",
       buttonLink: "/review-trade",
       imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2Fd10edb94fb5b4d71a29cfe934130da94?format=webp&width=800",
+        "/images/cta-1.webp",
     },
     {
       title: "Professional Application",
@@ -24,7 +24,7 @@ export function CTACards() {
       buttonText: "Add your business for free",
       buttonLink: "/join-as-tradesperson",
       imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2Fe42240bb83e345c9b7832aa1df5a51fe?format=webp&width=800",
+        "/images/cta-2.webp",
     },
     {
       title: "Request a quote",
@@ -33,7 +33,7 @@ export function CTACards() {
       buttonText: "Request a quote",
       buttonLink: "/post-job",
       imageUrl:
-        "https://cdn.builder.io/api/v1/image/assets%2F30dab4e592724986a43fc4d20bfb2e27%2F07b6aa67fdfa415a8633ef29743a7bb1?format=webp&width=800",
+        "/images/cta-3.webp",
     },
   ];
 

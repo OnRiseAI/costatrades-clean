@@ -196,7 +196,7 @@ export default function CustomerDashboard() {
 
   useEffect(() => {
     if (!loading && !isAuthenticated) {
-      navigate("/login");
+      router.push("/login");
     }
   }, [loading, isAuthenticated, navigate]);
 
@@ -236,7 +236,7 @@ export default function CustomerDashboard() {
 
   const handleSignOut = async () => {
     await signOut();
-    navigate("/");
+    router.push("/");
   };
 
   const handleShowNumber = (tradesperson: any) => {
@@ -370,7 +370,7 @@ export default function CustomerDashboard() {
           </p>
         </div>
         <Button
-          onClick={() => navigate("/post-job")}
+          onClick={() => router.push("/post-job")}
           className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-6 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all"
         >
           <Plus className="w-5 h-5 mr-2" /> Start New Project
@@ -389,7 +389,7 @@ export default function CustomerDashboard() {
             Post your first project to connect with verified specialists.
           </p>
           <Button
-            onClick={() => navigate("/post-job")}
+            onClick={() => router.push("/post-job")}
             size="lg"
             className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white px-8 h-12 text-base"
           >
