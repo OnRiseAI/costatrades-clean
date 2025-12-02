@@ -119,7 +119,11 @@ export default function TradespersonProfile({
   const [loading, setLoading] = useState(!initialData);
   
   // Create safe profile with all defaults applied
-  const safeProfile = profile ? { ...defaultData, ...profile } : defaultData;
+  // Filter out undefined values from profile so defaults are used
+  const cleanProfile = profile ? Object.fromEntries(
+    Object.entries(profile).filter(([_, v]) => v !== undefined)
+  ) : {};
+  const safeProfile = { ...defaultData, ...cleanProfile } as TradespersonProfileData;
 
   useEffect(() => {
     // Skip loading if we already have initialData
@@ -343,7 +347,7 @@ export default function TradespersonProfile({
 
               {/* Element B: The Score */}
               <span className="font-bold text-[#0a1f44] text-sm">
-                {(safeProfile.rating).toFixed(1)}
+                {(safeProfile.rating ?? 5).toFixed(1)}
               </span>
 
               {/* Element C: The Divider */}
@@ -618,7 +622,7 @@ export default function TradespersonProfile({
             </section>
 
             {/* Gallery */}
-            {safeProfile.portfolio && profile.portfolio.length > 0 && (
+            {Array.isArray(safeProfile.portfolio) && safeProfile.portfolio.length > 0 && (
             <section>
               <h2 className="text-2xl font-bold text-[#0a1f44] mb-4">
                 Portfolio
