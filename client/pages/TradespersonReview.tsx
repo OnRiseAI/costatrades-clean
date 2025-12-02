@@ -114,7 +114,7 @@ export default function TradespersonReview() {
     const tradeQuery = application?.tradeSlug
       ? `?trade=${encodeURIComponent(application.tradeSlug)}`
       : "";
-    navigate(`/tradesperson-details${tradeQuery}`);
+    router.push(`/tradesperson-details${tradeQuery}`);
   };
 
   const handleBack = () => {

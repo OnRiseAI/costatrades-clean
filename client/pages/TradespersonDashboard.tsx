@@ -374,7 +374,7 @@ export default function TradespersonDashboard() {
             </div>
 
             <Button
-              onClick={() => navigate(`/pro/job/${lead.id}`)}
+              onClick={() => router.push(`/pro/job/${lead.id}`)}
               className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold h-12 rounded-xl shadow-lg shadow-blue-900/10"
             >
               View & Quote
