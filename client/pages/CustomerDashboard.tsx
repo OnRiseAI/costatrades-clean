@@ -198,7 +198,7 @@ export default function CustomerDashboard() {
     if (!loading && !isAuthenticated) {
       router.push("/login");
     }
-  }, [loading, isAuthenticated, navigate]);
+  }, [loading, isAuthenticated, router]);
 
   useEffect(() => {
     try {
