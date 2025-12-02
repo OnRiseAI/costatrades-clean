@@ -83,8 +83,21 @@ export default function TradespersonProfile({
 }: TradespersonProfileProps = {}) {
   const params = useParams();
   const slug = params?.slug as string;
+  
+  // Default data to fill in missing fields
+  const defaultData: Partial<TradespersonProfileData> = {
+    type: "Company",
+    bio: "",
+    areasCovered: [],
+    portfolio: [],
+    reviews: [],
+    coverImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=400&fit=crop",
+    isClaimed: true,
+    created_year: "2020",
+  };
+  
   const [profile, setProfile] = useState<TradespersonProfileData | null>(
-    initialData || null,
+    initialData ? { ...defaultData, ...initialData } as TradespersonProfileData : null,
   );
   const [loading, setLoading] = useState(!initialData);
 
@@ -583,6 +596,7 @@ export default function TradespersonProfile({
             </section>
 
             {/* Gallery */}
+            {profile.portfolio && profile.portfolio.length > 0 && (
             <section>
               <h2 className="text-2xl font-bold text-[#0a1f44] mb-4">
                 Portfolio
@@ -597,6 +611,7 @@ export default function TradespersonProfile({
                   />
                 </div>
                 {/* Small Right Images */}
+                {profile.portfolio[1] && (
                 <div className="rounded-lg overflow-hidden relative group cursor-pointer">
                   <img
                     src={profile.portfolio[1]?.image}
@@ -604,6 +619,8 @@ export default function TradespersonProfile({
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
+                )}
+                {profile.portfolio[2] && (
                 <div className="rounded-lg overflow-hidden relative group cursor-pointer">
                   <img
                     src={profile.portfolio[2]?.image}
@@ -616,8 +633,10 @@ export default function TradespersonProfile({
                     </div>
                   )}
                 </div>
+                )}
               </div>
             </section>
+            )}
 
             {/* UPGRADE 3: THE SERVICE AREA MAP */}
             <section className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
