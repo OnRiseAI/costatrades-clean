@@ -73,6 +73,15 @@ async function fetchSpecialist(slug: string): Promise<SpecialistData | null> {
           "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=400&fit=crop",
         created_year: "2014",
         googleMapsUrl: "https://maps.google.com/?q=German+Precision+Electric",
+        portfolio: [
+          { id: 1, title: "Luxury Villa Rewiring", image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?w=800&h=600&fit=crop" },
+          { id: 2, title: "Smart Home Installation", image: "https://images.unsplash.com/photo-1558002038-1091a166111c?w=800&h=600&fit=crop" },
+          { id: 3, title: "Commercial Lighting", image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop" },
+        ],
+        reviews: [
+          { id: 1, author: "Hans M.", rating: 5, date: "1 week ago", text: "Absolutely fantastic service.", verified: true },
+          { id: 2, author: "Sarah L.", rating: 5, date: "2 weeks ago", text: "Very professional and on time.", verified: true },
+        ],
       },
       "aqua-masters-costa": {
         id: "aqua-masters-costa",
@@ -100,6 +109,13 @@ async function fetchSpecialist(slug: string): Promise<SpecialistData | null> {
           "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1200&h=400&fit=crop",
         created_year: "2016",
         googleMapsUrl: "https://maps.google.com/?q=Aqua+Masters+Costa",
+        portfolio: [
+          { id: 1, title: "Bathroom Renovation", image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop" },
+          { id: 2, title: "Kitchen Plumbing", image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop" },
+        ],
+        reviews: [
+          { id: 1, author: "Miguel R.", rating: 5, date: "3 days ago", text: "Fixed our leak quickly.", verified: true },
+        ],
       },
     };
 
