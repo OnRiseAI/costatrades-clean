@@ -85,7 +85,9 @@ export default function TradespersonProfile({
   const slug = params?.slug as string;
   
   // Default data to fill in missing fields
-  const defaultData: Partial<TradespersonProfileData> = {
+  const defaultData: TradespersonProfileData = {
+    id: "",
+    slug: "",
     type: "Company",
     bio: "",
     areasCovered: [],
@@ -94,12 +96,30 @@ export default function TradespersonProfile({
     coverImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=400&fit=crop",
     isClaimed: true,
     created_year: "2020",
+    rating: 5.0,
+    reviewCount: 0,
+    verified: true,
+    yearsInBusiness: 1,
+    phone: "",
+    email: "",
+    website: "",
+    street: "",
+    postal_code: "",
+    googleMapsUrl: "#",
+    businessName: "Business",
+    tradeCategory: "Tradesperson",
+    tradeCategorySlug: "tradesperson",
+    location: "Costa del Sol",
+    profilePhoto: "",
   };
   
   const [profile, setProfile] = useState<TradespersonProfileData | null>(
     initialData ? { ...defaultData, ...initialData } as TradespersonProfileData : null,
   );
   const [loading, setLoading] = useState(!initialData);
+  
+  // Create safe profile with all defaults applied
+  const safeProfile = profile ? { ...defaultData, ...profile } : defaultData;
 
   useEffect(() => {
     // Skip loading if we already have initialData
@@ -200,11 +220,13 @@ export default function TradespersonProfile({
 
   if (!profile) return null;
 
+  // Use safeProfile for all rendering to avoid undefined errors
+
   return (
     <div className="min-h-screen bg-[#F3F4F6] font-sans pb-20 md:pb-0">
       <SEO
-        title={`${profile.businessName} - ${profile.location} | CostaTrades`}
-        description={`Hire ${profile.businessName}, a verified ${profile.tradeCategory} in ${profile.location}.`}
+        title={`${safeProfile.businessName || "Business"} - ${safeProfile.location || "Costa del Sol"} | CostaTrades`}
+        description={`Hire ${safeProfile.businessName || "this business"}, a verified ${safeProfile.tradeCategory || "tradesperson"} in ${safeProfile.location || "Costa del Sol"}.`}
       />
 
       {/* SECTION 1: THE HERO HEADER */}
@@ -222,17 +244,17 @@ export default function TradespersonProfile({
             </li>
             <li>
               <Link
-                href={`/locations/${profile.location.toLowerCase()}`}
+                href={`/locations/${(safeProfile.location).toLowerCase()}`}
                 className="hover:text-[#0066CC]"
               >
-                {profile.location}
+                {safeProfile.location}
               </Link>
             </li>
             <li>
               <span className="text-gray-300">/</span>
             </li>
             <li className="font-medium text-gray-900">
-              {profile.tradeCategory}s
+              {safeProfile.tradeCategory}s
             </li>
           </ol>
         </nav>
@@ -240,7 +262,7 @@ export default function TradespersonProfile({
         {/* Cover Image */}
         <div className="relative w-full h-[250px] rounded-lg overflow-hidden shadow-sm">
           <img
-            src={profile.coverImage}
+            src={safeProfile.coverImage || "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=400&fit=crop"}
             alt="Cover"
             className="w-full h-full object-cover"
           />
@@ -250,15 +272,15 @@ export default function TradespersonProfile({
         <div className="relative px-4 sm:px-8 -mt-[60px] flex flex-col sm:flex-row items-start gap-6">
           {/* Avatar */}
           <div className="w-[120px] h-[120px] rounded-full border-4 border-white bg-white shadow-md overflow-hidden flex-shrink-0">
-            {profile.profilePhoto ? (
+            {safeProfile.profilePhoto ? (
               <img
-                src={profile.profilePhoto}
-                alt={profile.businessName}
+                src={safeProfile.profilePhoto}
+                alt={safeProfile.businessName}
                 className="w-full h-full object-cover"
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center bg-[#0a1f44] text-white text-4xl font-bold">
-                {profile.businessName.charAt(0)}
+                {(safeProfile.businessName).charAt(0)}
               </div>
             )}
           </div>
@@ -267,26 +289,26 @@ export default function TradespersonProfile({
           <div className="flex-1 pb-2 sm:mt-[60px] pt-3">
             {/* 1. The "Kicker" (Role) */}
             <div className="text-xs font-bold text-[#0066CC] uppercase tracking-[2px] mb-2">
-              MASTER {profile.tradeCategory.toUpperCase()}
+              MASTER {(safeProfile.tradeCategory).toUpperCase()}
             </div>
 
             {/* Middle Element: Headline Row */}
             <div className="flex flex-wrap items-center gap-3">
               <h1 className="text-3xl md:text-4xl font-bold text-[#0a1f44]">
-                {profile.businessName}
+                {safeProfile.businessName}
               </h1>
-              {profile.verified && (
+              {safeProfile.verified && (
                 <CheckCircle className="w-6 h-6 text-[#16A34A]" />
               )}
               <span className="text-gray-300 text-2xl font-light">|</span>
               <span className="text-2xl font-light text-gray-500">
-                {profile.location}
+                {safeProfile.location}
               </span>
             </div>
 
             {/* 2. The Google Rating Pill */}
             <a
-              href={profile.googleMapsUrl}
+              href={safeProfile.googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-4 py-1.5 bg-white border border-gray-200 rounded-full shadow-sm hover:border-[#0066CC] transition-colors cursor-pointer mt-3"
@@ -321,7 +343,7 @@ export default function TradespersonProfile({
 
               {/* Element B: The Score */}
               <span className="font-bold text-[#0a1f44] text-sm">
-                {profile.rating.toFixed(1)}
+                {(safeProfile.rating).toFixed(1)}
               </span>
 
               {/* Element C: The Divider */}
@@ -339,7 +361,7 @@ export default function TradespersonProfile({
 
               {/* Element E: The Count */}
               <span className="text-xs text-gray-500 font-medium">
-                ({profile.reviewCount})
+                ({safeProfile.reviewCount ?? 0})
               </span>
             </a>
           </div>
@@ -404,8 +426,8 @@ export default function TradespersonProfile({
               <div className="group relative cursor-pointer">
                 {/* Tooltip Box */}
                 <div className="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1F2937] text-white text-xs font-medium px-3 py-2 rounded-md shadow-lg whitespace-nowrap transition-opacity duration-200 z-10">
-                  {profile.street
-                    ? `${profile.street}, ${profile.postal_code}`
+                  {safeProfile.street
+                    ? `${safeProfile.street}, ${safeProfile.postal_code}`
                     : "Address available on request"}
                   {/* Arrow */}
                   <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#1F2937]"></div>
@@ -415,7 +437,7 @@ export default function TradespersonProfile({
                   Location
                 </p>
                 <p className="text-sm font-bold text-slate-900 leading-tight truncate max-w-[100px]">
-                  {profile.location}
+                  {safeProfile.location}
                 </p>
               </div>
             </div>
@@ -431,10 +453,10 @@ export default function TradespersonProfile({
             {/* About */}
             <section className="bg-white border border-gray-200 rounded-lg shadow-sm p-8">
               <h2 className="text-2xl font-bold text-[#0a1f44] mb-4">
-                About {profile.businessName}
+                About {safeProfile.businessName}
               </h2>
               <p className="text-gray-600 leading-relaxed text-lg">
-                {profile.bio}
+                {safeProfile.bio}
               </p>
             </section>
 
@@ -532,7 +554,7 @@ export default function TradespersonProfile({
                     Not sure what you need?
                   </span>
                   <Link
-                    href={`/post-job?area=${profile.location.toLowerCase().replace(/\s+/g, "-")}`}
+                    href={`/post-job?area=${(safeProfile.location).toLowerCase().replace(/\s+/g, "-")}`}
                     className="text-[#FF8A00] font-bold text-sm hover:underline flex items-center gap-1"
                   >
                     Get a Custom Quote <ChevronRight className="w-4 h-4" />
@@ -596,7 +618,7 @@ export default function TradespersonProfile({
             </section>
 
             {/* Gallery */}
-            {profile.portfolio && profile.portfolio.length > 0 && (
+            {safeProfile.portfolio && profile.portfolio.length > 0 && (
             <section>
               <h2 className="text-2xl font-bold text-[#0a1f44] mb-4">
                 Portfolio
@@ -605,31 +627,31 @@ export default function TradespersonProfile({
                 {/* Large Left Image */}
                 <div className="md:row-span-2 rounded-lg overflow-hidden relative group cursor-pointer">
                   <img
-                    src={profile.portfolio[0]?.image}
-                    alt={profile.portfolio[0]?.title}
+                    src={safeProfile.portfolio[0]?.image}
+                    alt={safeProfile.portfolio[0]?.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 {/* Small Right Images */}
-                {profile.portfolio[1] && (
+                {safeProfile.portfolio[1] && (
                 <div className="rounded-lg overflow-hidden relative group cursor-pointer">
                   <img
-                    src={profile.portfolio[1]?.image}
-                    alt={profile.portfolio[1]?.title}
+                    src={safeProfile.portfolio[1]?.image}
+                    alt={safeProfile.portfolio[1]?.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 )}
-                {profile.portfolio[2] && (
+                {safeProfile.portfolio[2] && (
                 <div className="rounded-lg overflow-hidden relative group cursor-pointer">
                   <img
-                    src={profile.portfolio[2]?.image}
-                    alt={profile.portfolio[2]?.title}
+                    src={safeProfile.portfolio[2]?.image}
+                    alt={safeProfile.portfolio[2]?.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  {profile.portfolio.length > 3 && (
+                  {safeProfile.portfolio.length > 3 && (
                     <div className="absolute inset-0 bg-black/50 flex items-center justify-center text-white font-bold text-lg">
-                      +{profile.portfolio.length - 3} More
+                      +{safeProfile.portfolio.length - 3} More
                     </div>
                   )}
                 </div>
@@ -679,7 +701,7 @@ export default function TradespersonProfile({
 
                 <div className="space-y-3">
                   <Link
-                    href={`/post-job?area=${profile.location.toLowerCase().replace(/\s+/g, "-")}`}
+                    href={`/post-job?area=${(safeProfile.location).toLowerCase().replace(/\s+/g, "-")}`}
                   >
                     <Button className="w-full bg-[#0066CC] hover:bg-[#0052A3] text-white font-bold h-12 text-base shadow-sm">
                       Request a Quote
