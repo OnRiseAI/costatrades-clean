@@ -29,6 +29,7 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 import { getSupabase } from "@/contexts/AuthContext";
+import { getLocationImageMeta } from "@/data/locationImageMeta";
 
 interface LogisticsInfo {
   security_gate_clearance: boolean;
@@ -1680,39 +1681,47 @@ export default function LocationHub() {
         schema={schemaData}
       />
 
-      <section className="relative py-24 md:py-32 overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0">
-          <img
-            src={`/images/locations/${displayData.region_slug}.jpg`}
-            alt={`${displayData.REGION_NAME} - Costa del Sol`}
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/5359370/pexels-photo-5359370.jpeg';
-            }}
-          />
-        </div>
-        <div className="absolute inset-0 bg-slate-900/70" />
+      {/* Get location-specific image metadata for SEO */}
+      {(() => {
+        const imageMeta = getLocationImageMeta(displayData.region_slug);
+        return (
+          <section className="relative py-24 md:py-32 overflow-hidden">
+            {/* Background Image with Overlay */}
+            <div className="absolute inset-0">
+              <img
+                src={`/images/locations/${displayData.region_slug}.jpg`}
+                alt={imageMeta.altText}
+                title={`Verified tradespeople serving ${imageMeta.name}, ${imageMeta.region}`}
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/5359370/pexels-photo-5359370.jpeg';
+                  (e.target as HTMLImageElement).alt = 'Costa del Sol, Spain - service area for verified local tradespeople';
+                }}
+              />
+            </div>
+            <div className="absolute inset-0 bg-slate-900/70" />
 
-        <div className="container-custom relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
-              Find Verified Specialists in {displayData.REGION_NAME}.
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl font-light">
-              The trusted network for {displayData.REGION_NAME} homeowners.
-            </p>
-            <Link href={`/post-job?location=${displayData.region_slug}`}>
-              <Button
-                size="lg"
-                className="bg-[#E31E24] hover:bg-[#C41218] text-white h-14 px-8 text-lg font-bold rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
-              >
+            <div className="container-custom relative z-10">
+              <div className="max-w-3xl">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
+                  Find Verified Specialists in {displayData.REGION_NAME}.
+                </h1>
+                <p className="text-xl text-gray-300 mb-8 max-w-2xl font-light">
+                  The trusted network for {displayData.REGION_NAME} homeowners.
+                </p>
+                <Link href={`/post-job?location=${displayData.region_slug}`}>
+                  <Button
+                    size="lg"
+                    className="bg-[#E31E24] hover:bg-[#C41218] text-white h-14 px-8 text-lg font-bold rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5"
+                  >
                 Post a Job in {displayData.REGION_NAME}
               </Button>
             </Link>
           </div>
         </div>
       </section>
+        );
+      })()}
 
       {displayData.SUB_AREAS.length > 0 && (
         <section className="py-16 bg-gray-50">
