@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 import { useEffect, useState } from "react";
 import { getSupabase } from "@/contexts/AuthContext";
+import { getLocationImageMeta } from "@/data/locationImageMeta";
 import {
   Shield,
   MapPin,
@@ -197,8 +198,18 @@ export default function SEOTradePage() {
   
   // Location-specific image path (falls back to trade image if not found)
   const locationImage = locationSlug ? `/images/locations/${locationSlug}.jpg` : null;
-  const heroImage = tradeImage; // Trade image as primary for SEO trade pages
-  const heroBackgroundImage = locationImage || tradeImage;
+  const heroImage = locationImage || tradeImage; // Prioritize location image for Tier 3
+  
+  // Get location metadata for SEO
+  const locationMeta = locationSlug ? getLocationImageMeta(locationSlug) : null;
+  
+  // Generate SEO-optimized alt text (AEO Primary format)
+  const altTextAEO = `Verified ${tradeName.toLowerCase()} service area in ${locationMeta?.name || locationName}, ${locationMeta?.region || 'Costa del Sol'}, Spain`;
+  
+  // Generate descriptive alt text (SEO format)
+  const altTextSEO = locationMeta 
+    ? `${locationMeta.description.charAt(0).toUpperCase() + locationMeta.description.slice(1)} in ${locationMeta.name}, ${locationMeta.region}, representing the service area for trusted local ${tradeName.toLowerCase()} professionals on the Costa del Sol`
+    : `View of ${locationName} on the Costa del Sol, Spain - service area for verified ${tradeName.toLowerCase()} professionals`;
 
   // Determine dynamic trade data
   const tradePriceRange = tradeData?.price_range || null;
@@ -279,8 +290,12 @@ export default function SEOTradePage() {
           <div className="absolute inset-0 z-0">
             <img
               src={heroImage}
-              alt={`${tradeName} in ${locationName}`}
+              alt={altTextAEO}
+              title={`Verified ${tradeName.toLowerCase()} professionals serving ${locationMeta?.name || locationName}`}
               className="w-full h-full object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = tradeImage;
+              }}
             />
             <div className="absolute inset-0 bg-slate-900/80"></div>
           </div>
