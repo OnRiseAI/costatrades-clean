@@ -85,10 +85,17 @@ export default function SEOTradePage() {
   const pathSegments = rawPath.split("/").filter(Boolean);
   const lastSegment = pathSegments[pathSegments.length - 1] || "";
 
+  const locationSlug =
+    (params.slug as string | undefined) ??
+    (params.location as string | undefined) ??
+    (params.region_slug as string | undefined) ??
+    (params.region as string | undefined);
+
   const paramTrade = params.trade as string | undefined;
   const paramService = params.service as string | undefined;
+  const paramCategory = params.category as string | undefined;
 
-  const rawTradeSlugFromParams = (paramTrade ?? paramService)?.toLowerCase();
+  const rawTradeSlugFromParams = (paramCategory ?? paramTrade ?? paramService)?.toLowerCase();
 
   const tradeSlugFromPath = lastSegment;
 
@@ -101,11 +108,6 @@ export default function SEOTradePage() {
   const normalizedTradeSlug = effectiveTradeSlug
     ? effectiveTradeSlug.replace(/^emergency-/, "")
     : undefined;
-
-  const locationSlug =
-    (params.location as string | undefined) ??
-    (params.region_slug as string | undefined) ??
-    (params.region as string | undefined);
 
   // Fallback to mock data if params are missing (for template preview)
   const baseTradeName = normalizedTradeSlug
@@ -125,7 +127,7 @@ export default function SEOTradePage() {
   // Fetch location and trade data from Supabase
   useEffect(() => {
     const tradeSlugForQuery =
-      normalizedTradeSlug || tradeSlugFromPath || paramTrade || paramService;
+      normalizedTradeSlug || tradeSlugFromPath || paramCategory || paramTrade || paramService;
 
     if (!locationSlug && !tradeSlugForQuery) return;
 
@@ -178,6 +180,7 @@ export default function SEOTradePage() {
     locationSlug,
     normalizedTradeSlug,
     tradeSlugFromPath,
+    paramCategory,
     paramTrade,
     paramService,
   ]);

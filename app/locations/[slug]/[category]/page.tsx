@@ -1,7 +1,7 @@
 "use client";
 
-import LocationHub from "@/pages/LocationHub";
+import SEOTradePage from "@/pages/SEOTradePage";
 
 export default function LocationCategoryPage() {
-  return <LocationHub />;
+  return <SEOTradePage />;
 }
