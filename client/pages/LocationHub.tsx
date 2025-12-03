@@ -19,8 +19,14 @@ import {
   Droplets,
   Shovel,
   Paintbrush,
+  X,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogClose,
+} from "@/components/ui/dialog";
 import { getSupabase } from "@/contexts/AuthContext";
 
 interface LogisticsInfo {
@@ -1511,6 +1517,28 @@ export default function LocationHub() {
 
   const [locationProfile, setLocationProfile] =
     useState<SupabaseLocationProfile | null>(null);
+  
+  // Emergency modal state
+  const [emergencyModalOpen, setEmergencyModalOpen] = useState(false);
+  const [emergencyService, setEmergencyService] = useState<{
+    title: string;
+    phone: string;
+    category: string;
+  } | null>(null);
+
+  const EMERGENCY_CONTACTS: Record<string, { phone: string; category: string }> = {
+    "emergency-plumber": { phone: "+34-952-234-567", category: "Plumbers" },
+    "emergency-electrician": { phone: "+34-952-234-568", category: "Electricians" },
+    "emergency-locksmith": { phone: "+34-952-234-569", category: "Locksmiths" },
+  };
+
+  const handleEmergencyClick = (title: string, slug: string) => {
+    const contact = EMERGENCY_CONTACTS[slug];
+    if (contact) {
+      setEmergencyService({ title, ...contact });
+      setEmergencyModalOpen(true);
+    }
+  };
 
   const defaultRegion = LOCATION_CONFIG[0];
 
@@ -1712,7 +1740,7 @@ export default function LocationHub() {
             {SPECIALIST_CATEGORIES.map((cat) => (
               <Link
                 key={cat.slug}
-                href={`/locations/${displayData.region_slug}/${cat.slug}`}
+                href={`/post-job/results?category=${cat.slug}&postcode=${encodeURIComponent(displayData.REGION_NAME)}`}
                 className="flex flex-col items-center p-6 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
               >
                 <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-3 group-hover:bg-[#0a1f44] group-hover:text-white transition-colors">
@@ -1748,10 +1776,10 @@ export default function LocationHub() {
                 icon: Key,
               },
             ].map((item) => (
-              <Link
+              <button
                 key={item.title}
-                href={`/locations/${displayData.region_slug}/${item.slug}`}
-                className="block"
+                onClick={() => handleEmergencyClick(item.title, item.slug)}
+                className="block text-left w-full"
               >
                 <Card className="p-6 border border-red-200 shadow-sm hover:shadow-md transition-all bg-white h-full relative overflow-hidden group">
                   <div className="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
@@ -1770,11 +1798,48 @@ export default function LocationHub() {
                     Available 24/7 - Verified - Fast Response
                   </p>
                 </Card>
-              </Link>
+              </button>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Emergency Contact Modal */}
+      <Dialog open={emergencyModalOpen} onOpenChange={setEmergencyModalOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+            <X className="h-4 w-4" />
+            <span className="sr-only">Close</span>
+          </DialogClose>
+          
+          <div className="text-center py-4">
+            <h2 className="text-xl font-bold text-[#0a1f44] mb-2">Contact Information</h2>
+            <p className="text-gray-500 text-sm mb-6">Get in touch with this professional directly</p>
+            
+            <div className="w-20 h-20 bg-gray-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <Phone className="w-8 h-8 text-[#0a1f44]" />
+            </div>
+            
+            <h3 className="font-bold text-lg text-[#0a1f44]">{emergencyService?.title}</h3>
+            <p className="text-gray-500 text-sm mb-6">{emergencyService?.category}</p>
+            
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+              <p className="text-sm text-blue-600 font-medium mb-1">Phone Number</p>
+              <a 
+                href={`tel:${emergencyService?.phone}`}
+                className="text-xl font-bold text-[#0a1f44] flex items-center justify-center gap-2"
+              >
+                <Phone className="w-5 h-5" />
+                {emergencyService?.phone}
+              </a>
+            </div>
+            
+            <p className="text-xs text-gray-500">
+              Please mention <strong>CostaTrade</strong> when you call to ensure the best service.
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
