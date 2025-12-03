@@ -1,0 +1,296 @@
+[
+  {
+    "slug": "alcaidesa",
+    "name": "Alcaidesa",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "alhaurin-el-grande",
+    "name": "Alhaurín el Grande",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "alozaina",
+    "name": "Alozaina",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "arroyo-de-la-miel",
+    "name": "Arroyo de la Miel",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "benalmadena-area",
+    "name": "Benalmadena",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "benalmadena-costa",
+    "name": "Benalmadena Costa",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "benalmadena-pueblo",
+    "name": "Benalmadena Pueblo",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "calahonda",
+    "name": "Calahonda",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "cancelada",
+    "name": "Cancelada",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "casares-costa",
+    "name": "Casares Costa",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "coin",
+    "name": "Coin",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "el-chaparral",
+    "name": "El Chaparral",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "el-rosario",
+    "name": "El Rosario",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "elviria",
+    "name": "Elviria",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "estepona-town",
+    "name": "Estepona",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "frigiliana",
+    "name": "Frigiliana",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "guadiaro",
+    "name": "Guadiaro",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "guaro",
+    "name": "Guaro",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "inland-sierra-region",
+    "name": "Sierra de las Nieves",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "la-cala-de-mijas",
+    "name": "La Cala de Mijas",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "la-cala-del-moral",
+    "name": "La Cala del Moral",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "la-carihuela",
+    "name": "La Carihuela",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "la-reserva",
+    "name": "La Reserva Sotogrande",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "las-chapas",
+    "name": "Las Chapas",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "malaga-east-axarquia",
+    "name": "Axarquia",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "manilva",
+    "name": "Manilva",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "marbella-area",
+    "name": "Marbella",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "mijas-costa",
+    "name": "Mijas Costa",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "mijas-pueblo",
+    "name": "Mijas Pueblo",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "miraflores",
+    "name": "Miraflores",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "nerja",
+    "name": "Nerja",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "nueva-andalucia",
+    "name": "Nueva Andalucia",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "ojen",
+    "name": "Ojen",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "pueblo-nuevo",
+    "name": "Pueblo Nuevo Sotogrande",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "puerto-banus",
+    "name": "Puerto Banus",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "puerto-de-la-duquesa",
+    "name": "Puerto de la Duquesa",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "rincon-de-la-victoria",
+    "name": "Rincon de la Victoria",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "riviera-del-sol",
+    "name": "Riviera del Sol",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "sabinillas",
+    "name": "Sabinillas",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "san-pedro",
+    "name": "San Pedro de Alcantara",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "san-roque-club",
+    "name": "San Roque golf",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "selwo",
+    "name": "Selwo Estepona",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "sotogrande-alto",
+    "name": "Sotogrande Alto",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "sotogrande-costa",
+    "name": "Sotogrande",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "tolox",
+    "name": "Tolox",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "torre-del-mar",
+    "name": "Torre del Mar",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "torremolinos",
+    "name": "Torremolinos",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "torrox",
+    "name": "Torrox",
+    "status": "error",
+    "reason": "fetch failed"
+  },
+  {
+    "slug": "velez-malaga",
+    "name": "Velez Malaga",
+    "status": "error",
+    "reason": "fetch failed"
+  }
+]

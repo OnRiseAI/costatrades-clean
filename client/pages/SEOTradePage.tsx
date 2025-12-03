@@ -32,6 +32,8 @@ const TRADE_IMAGES: Record<string, string> = {
     "https://images.pexels.com/photos/7482641/pexels-photo-7482641.jpeg",
   "solar-panel-installer":
     "https://images.pexels.com/photos/8853537/pexels-photo-8853537.jpeg",
+  "solar-installation":
+    "https://images.pexels.com/photos/8853537/pexels-photo-8853537.jpeg",
   "leak-detection":
     "https://images.pexels.com/photos/7220892/pexels-photo-7220892.jpeg", // Using plumber image as fallback/related
   roofer: "https://images.pexels.com/photos/8853472/pexels-photo-8853472.jpeg",
@@ -185,14 +187,18 @@ export default function SEOTradePage() {
     paramService,
   ]);
 
-  // Determine hero image
+  // Determine hero image - prioritize location image, fallback to trade image
   const normalizedTrade = normalizedTradeSlug || "default";
-  // Try exact match, then singular/plural variations, then default
-  const heroImage =
+  const tradeImage =
     TRADE_IMAGES[normalizedTrade] ||
     TRADE_IMAGES[normalizedTrade.replace(/s$/, "")] ||
     TRADE_IMAGES[normalizedTrade + "s"] ||
     TRADE_IMAGES.default;
+  
+  // Location-specific image path (falls back to trade image if not found)
+  const locationImage = locationSlug ? `/images/locations/${locationSlug}.jpg` : null;
+  const heroImage = tradeImage; // Trade image as primary for SEO trade pages
+  const heroBackgroundImage = locationImage || tradeImage;
 
   // Determine dynamic trade data
   const tradePriceRange = tradeData?.price_range || null;
