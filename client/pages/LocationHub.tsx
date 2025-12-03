@@ -19,6 +19,7 @@ import {
   Droplets,
   Shovel,
   Paintbrush,
+  Sun,
   X,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -88,6 +89,7 @@ const SPECIALIST_CATEGORIES = [
   { name: "Handymen", slug: "handyman", icon: Wrench },
   { name: "Locksmiths", slug: "locksmith", icon: Key },
   { name: "Renovation Specialists", slug: "renovation", icon: Paintbrush },
+  { name: "Solar Installers", slug: "solar-installation", icon: Sun },
 ];
 
 const LOCATION_CONFIG: LocationData[] = [
@@ -1680,7 +1682,16 @@ export default function LocationHub() {
 
       <section className="relative py-24 md:py-32 overflow-hidden">
         {/* Background Image with Overlay */}
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/5359370/pexels-photo-5359370.jpeg')] bg-cover bg-center" />
+        <div className="absolute inset-0">
+          <img
+            src={`/images/locations/${displayData.region_slug}.jpg`}
+            alt={`${displayData.REGION_NAME} - Costa del Sol`}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = 'https://images.pexels.com/photos/5359370/pexels-photo-5359370.jpeg';
+            }}
+          />
+        </div>
         <div className="absolute inset-0 bg-slate-900/70" />
 
         <div className="container-custom relative z-10">

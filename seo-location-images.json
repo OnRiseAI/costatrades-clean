@@ -1,0 +1,835 @@
+[
+  {
+    "slug": "alcaidesa",
+    "name": "Alcaidesa",
+    "region": "Sotogrande",
+    "description": "hillside golf community with sea views",
+    "image_search_queries": [
+      "Alcaidesa Sotogrande Spain residential street Mediterranean architecture",
+      "Alcaidesa Costa del Sol hillside golf community with sea views scenic view",
+      "aerial view Alcaidesa Spain neighborhood homes",
+      "Alcaidesa Sotogrande local area sunny day palm trees",
+      "Alcaidesa Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Alcaidesa%20spain",
+      "https://www.pexels.com/search/Alcaidesa%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "alhaurin-el-grande",
+    "name": "Alhaurín el Grande",
+    "region": "Inland Málaga",
+    "description": "traditional white village in mountain foothills",
+    "image_search_queries": [
+      "Alhaurín el Grande Inland Málaga Spain residential street Mediterranean architecture",
+      "Alhaurín el Grande Costa del Sol traditional white village in mountain foothills scenic view",
+      "aerial view Alhaurín el Grande Spain neighborhood homes",
+      "Alhaurín el Grande Inland Málaga local area sunny day palm trees",
+      "Alhaurín el Grande Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Alhaur%C3%ADn%20el%20Grande%20spain",
+      "https://www.pexels.com/search/Alhaur%C3%ADn%20el%20Grande%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "alozaina",
+    "name": "Alozaina",
+    "region": "Sierra de las Nieves",
+    "description": "rustic mountain village with olive groves",
+    "image_search_queries": [
+      "Alozaina Sierra de las Nieves Spain residential street Mediterranean architecture",
+      "Alozaina Costa del Sol rustic mountain village with olive groves scenic view",
+      "aerial view Alozaina Spain neighborhood homes",
+      "Alozaina Sierra de las Nieves local area sunny day palm trees",
+      "Alozaina Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Alozaina%20spain",
+      "https://www.pexels.com/search/Alozaina%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "arroyo-de-la-miel",
+    "name": "Arroyo de la Miel",
+    "region": "Benalmádena",
+    "description": "bustling commercial center near coast",
+    "image_search_queries": [
+      "Arroyo de la Miel Benalmádena Spain residential street Mediterranean architecture",
+      "Arroyo de la Miel Costa del Sol bustling commercial center near coast scenic view",
+      "aerial view Arroyo de la Miel Spain neighborhood homes",
+      "Arroyo de la Miel Benalmádena local area sunny day palm trees",
+      "Arroyo de la Miel Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Arroyo%20de%20la%20Miel%20spain",
+      "https://www.pexels.com/search/Arroyo%20de%20la%20Miel%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "benalmadena-area",
+    "name": "Benalmádena",
+    "region": "Costa del Sol",
+    "description": "coastal resort town with marina and cable car",
+    "image_search_queries": [
+      "Benalmádena Costa del Sol Spain residential street Mediterranean architecture",
+      "Benalmádena Costa del Sol coastal resort town with marina and cable car scenic view",
+      "aerial view Benalmádena Spain neighborhood homes",
+      "Benalmádena Costa del Sol local area sunny day palm trees",
+      "Benalmádena Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Benalm%C3%A1dena%20spain",
+      "https://www.pexels.com/search/Benalm%C3%A1dena%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "benalmadena-costa",
+    "name": "Benalmádena Costa",
+    "region": "Benalmádena",
+    "description": "beachfront promenade with modern apartments",
+    "image_search_queries": [
+      "Benalmádena Costa Benalmádena Spain residential street Mediterranean architecture",
+      "Benalmádena Costa Costa del Sol beachfront promenade with modern apartments scenic view",
+      "aerial view Benalmádena Costa Spain neighborhood homes",
+      "Benalmádena Costa Benalmádena local area sunny day palm trees",
+      "Benalmádena Costa Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Benalm%C3%A1dena%20Costa%20spain",
+      "https://www.pexels.com/search/Benalm%C3%A1dena%20Costa%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "benalmadena-pueblo",
+    "name": "Benalmádena Pueblo",
+    "region": "Benalmádena",
+    "description": "charming whitewashed hilltop village",
+    "image_search_queries": [
+      "Benalmádena Pueblo Benalmádena Spain residential street Mediterranean architecture",
+      "Benalmádena Pueblo Costa del Sol charming whitewashed hilltop village scenic view",
+      "aerial view Benalmádena Pueblo Spain neighborhood homes",
+      "Benalmádena Pueblo Benalmádena local area sunny day palm trees",
+      "Benalmádena Pueblo Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Benalm%C3%A1dena%20Pueblo%20spain",
+      "https://www.pexels.com/search/Benalm%C3%A1dena%20Pueblo%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "calahonda",
+    "name": "Calahonda",
+    "region": "Mijas Costa",
+    "description": "hillside residential area near beach",
+    "image_search_queries": [
+      "Calahonda Mijas Costa Spain residential street Mediterranean architecture",
+      "Calahonda Costa del Sol hillside residential area near beach scenic view",
+      "aerial view Calahonda Spain neighborhood homes",
+      "Calahonda Mijas Costa local area sunny day palm trees",
+      "Calahonda Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Calahonda%20spain",
+      "https://www.pexels.com/search/Calahonda%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "cancelada",
+    "name": "Cancelada",
+    "region": "Estepona",
+    "description": "quiet residential village with local shops",
+    "image_search_queries": [
+      "Cancelada Estepona Spain residential street Mediterranean architecture",
+      "Cancelada Costa del Sol quiet residential village with local shops scenic view",
+      "aerial view Cancelada Spain neighborhood homes",
+      "Cancelada Estepona local area sunny day palm trees",
+      "Cancelada Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Cancelada%20spain",
+      "https://www.pexels.com/search/Cancelada%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "casares-costa",
+    "name": "Casares Costa",
+    "region": "Casares",
+    "description": "coastal urbanization with golf courses",
+    "image_search_queries": [
+      "Casares Costa Casares Spain residential street Mediterranean architecture",
+      "Casares Costa Costa del Sol coastal urbanization with golf courses scenic view",
+      "aerial view Casares Costa Spain neighborhood homes",
+      "Casares Costa Casares local area sunny day palm trees",
+      "Casares Costa Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Casares%20Costa%20spain",
+      "https://www.pexels.com/search/Casares%20Costa%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "coin",
+    "name": "Coín",
+    "region": "Guadalhorce Valley",
+    "description": "authentic Spanish market town inland",
+    "image_search_queries": [
+      "Coín Guadalhorce Valley Spain residential street Mediterranean architecture",
+      "Coín Costa del Sol authentic Spanish market town inland scenic view",
+      "aerial view Coín Spain neighborhood homes",
+      "Coín Guadalhorce Valley local area sunny day palm trees",
+      "Coín Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Co%C3%ADn%20spain",
+      "https://www.pexels.com/search/Co%C3%ADn%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "el-chaparral",
+    "name": "El Chaparral",
+    "region": "Mijas Costa",
+    "description": "woodland residential area near golf",
+    "image_search_queries": [
+      "El Chaparral Mijas Costa Spain residential street Mediterranean architecture",
+      "El Chaparral Costa del Sol woodland residential area near golf scenic view",
+      "aerial view El Chaparral Spain neighborhood homes",
+      "El Chaparral Mijas Costa local area sunny day palm trees",
+      "El Chaparral Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/El%20Chaparral%20spain",
+      "https://www.pexels.com/search/El%20Chaparral%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "el-rosario",
+    "name": "El Rosario",
+    "region": "Marbella East",
+    "description": "established beachside residential area",
+    "image_search_queries": [
+      "El Rosario Marbella East Spain residential street Mediterranean architecture",
+      "El Rosario Costa del Sol established beachside residential area scenic view",
+      "aerial view El Rosario Spain neighborhood homes",
+      "El Rosario Marbella East local area sunny day palm trees",
+      "El Rosario Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/El%20Rosario%20spain",
+      "https://www.pexels.com/search/El%20Rosario%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "elviria",
+    "name": "Elviria",
+    "region": "Marbella East",
+    "description": "upscale residential area with dune beach",
+    "image_search_queries": [
+      "Elviria Marbella East Spain residential street Mediterranean architecture",
+      "Elviria Costa del Sol upscale residential area with dune beach scenic view",
+      "aerial view Elviria Spain neighborhood homes",
+      "Elviria Marbella East local area sunny day palm trees",
+      "Elviria Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Elviria%20spain",
+      "https://www.pexels.com/search/Elviria%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "estepona-town",
+    "name": "Estepona Town",
+    "region": "Estepona",
+    "description": "picturesque old town with flower streets",
+    "image_search_queries": [
+      "Estepona Town Estepona Spain residential street Mediterranean architecture",
+      "Estepona Town Costa del Sol picturesque old town with flower streets scenic view",
+      "aerial view Estepona Town Spain neighborhood homes",
+      "Estepona Town Estepona local area sunny day palm trees",
+      "Estepona Town Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Estepona%20Town%20spain",
+      "https://www.pexels.com/search/Estepona%20Town%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "frigiliana",
+    "name": "Frigiliana",
+    "region": "Axarquía",
+    "description": "stunning white village with Moorish heritage",
+    "image_search_queries": [
+      "Frigiliana Axarquía Spain residential street Mediterranean architecture",
+      "Frigiliana Costa del Sol stunning white village with Moorish heritage scenic view",
+      "aerial view Frigiliana Spain neighborhood homes",
+      "Frigiliana Axarquía local area sunny day palm trees",
+      "Frigiliana Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Frigiliana%20spain",
+      "https://www.pexels.com/search/Frigiliana%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "guadiaro",
+    "name": "Guadiaro",
+    "region": "Sotogrande",
+    "description": "peaceful riverside village near polo grounds",
+    "image_search_queries": [
+      "Guadiaro Sotogrande Spain residential street Mediterranean architecture",
+      "Guadiaro Costa del Sol peaceful riverside village near polo grounds scenic view",
+      "aerial view Guadiaro Spain neighborhood homes",
+      "Guadiaro Sotogrande local area sunny day palm trees",
+      "Guadiaro Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Guadiaro%20spain",
+      "https://www.pexels.com/search/Guadiaro%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "guaro",
+    "name": "Guaro",
+    "region": "Sierra de las Nieves",
+    "description": "small mountain village with panoramic views",
+    "image_search_queries": [
+      "Guaro Sierra de las Nieves Spain residential street Mediterranean architecture",
+      "Guaro Costa del Sol small mountain village with panoramic views scenic view",
+      "aerial view Guaro Spain neighborhood homes",
+      "Guaro Sierra de las Nieves local area sunny day palm trees",
+      "Guaro Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Guaro%20spain",
+      "https://www.pexels.com/search/Guaro%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "inland-sierra-region",
+    "name": "Inland Sierra",
+    "region": "Málaga Mountains",
+    "description": "scenic mountain range with white villages",
+    "image_search_queries": [
+      "Inland Sierra Málaga Mountains Spain residential street Mediterranean architecture",
+      "Inland Sierra Costa del Sol scenic mountain range with white villages scenic view",
+      "aerial view Inland Sierra Spain neighborhood homes",
+      "Inland Sierra Málaga Mountains local area sunny day palm trees",
+      "Inland Sierra Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Inland%20Sierra%20spain",
+      "https://www.pexels.com/search/Inland%20Sierra%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "la-cala-de-mijas",
+    "name": "La Cala de Mijas",
+    "region": "Mijas Costa",
+    "description": "family-friendly beach town with boardwalk",
+    "image_search_queries": [
+      "La Cala de Mijas Mijas Costa Spain residential street Mediterranean architecture",
+      "La Cala de Mijas Costa del Sol family-friendly beach town with boardwalk scenic view",
+      "aerial view La Cala de Mijas Spain neighborhood homes",
+      "La Cala de Mijas Mijas Costa local area sunny day palm trees",
+      "La Cala de Mijas Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/La%20Cala%20de%20Mijas%20spain",
+      "https://www.pexels.com/search/La%20Cala%20de%20Mijas%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "la-cala-del-moral",
+    "name": "La Cala del Moral",
+    "region": "Rincón de la Victoria",
+    "description": "traditional fishing village turned resort",
+    "image_search_queries": [
+      "La Cala del Moral Rincón de la Victoria Spain residential street Mediterranean architecture",
+      "La Cala del Moral Costa del Sol traditional fishing village turned resort scenic view",
+      "aerial view La Cala del Moral Spain neighborhood homes",
+      "La Cala del Moral Rincón de la Victoria local area sunny day palm trees",
+      "La Cala del Moral Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/La%20Cala%20del%20Moral%20spain",
+      "https://www.pexels.com/search/La%20Cala%20del%20Moral%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "la-carihuela",
+    "name": "La Carihuela",
+    "region": "Torremolinos",
+    "description": "authentic fishing quarter with seafood restaurants",
+    "image_search_queries": [
+      "La Carihuela Torremolinos Spain residential street Mediterranean architecture",
+      "La Carihuela Costa del Sol authentic fishing quarter with seafood restaurants scenic view",
+      "aerial view La Carihuela Spain neighborhood homes",
+      "La Carihuela Torremolinos local area sunny day palm trees",
+      "La Carihuela Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/La%20Carihuela%20spain",
+      "https://www.pexels.com/search/La%20Carihuela%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "la-reserva",
+    "name": "La Reserva",
+    "region": "Sotogrande",
+    "description": "exclusive gated community with golf",
+    "image_search_queries": [
+      "La Reserva Sotogrande Spain residential street Mediterranean architecture",
+      "La Reserva Costa del Sol exclusive gated community with golf scenic view",
+      "aerial view La Reserva Spain neighborhood homes",
+      "La Reserva Sotogrande local area sunny day palm trees",
+      "La Reserva Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/La%20Reserva%20spain",
+      "https://www.pexels.com/search/La%20Reserva%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "las-chapas",
+    "name": "Las Chapas",
+    "region": "Marbella East",
+    "description": "prestigious residential area with pine forests",
+    "image_search_queries": [
+      "Las Chapas Marbella East Spain residential street Mediterranean architecture",
+      "Las Chapas Costa del Sol prestigious residential area with pine forests scenic view",
+      "aerial view Las Chapas Spain neighborhood homes",
+      "Las Chapas Marbella East local area sunny day palm trees",
+      "Las Chapas Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Las%20Chapas%20spain",
+      "https://www.pexels.com/search/Las%20Chapas%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "malaga-east-axarquia",
+    "name": "Málaga East & Axarquía",
+    "region": "Eastern Costa del Sol",
+    "description": "dramatic coastal cliffs and white villages",
+    "image_search_queries": [
+      "Málaga East & Axarquía Eastern Costa del Sol Spain residential street Mediterranean architecture",
+      "Málaga East & Axarquía Costa del Sol dramatic coastal cliffs and white villages scenic view",
+      "aerial view Málaga East & Axarquía Spain neighborhood homes",
+      "Málaga East & Axarquía Eastern Costa del Sol local area sunny day palm trees",
+      "Málaga East & Axarquía Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/M%C3%A1laga%20East%20%26%20Axarqu%C3%ADa%20spain",
+      "https://www.pexels.com/search/M%C3%A1laga%20East%20%26%20Axarqu%C3%ADa%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "manilva",
+    "name": "Manilva",
+    "region": "Western Costa del Sol",
+    "description": "wine-producing town with Roman ruins",
+    "image_search_queries": [
+      "Manilva Western Costa del Sol Spain residential street Mediterranean architecture",
+      "Manilva Costa del Sol wine-producing town with Roman ruins scenic view",
+      "aerial view Manilva Spain neighborhood homes",
+      "Manilva Western Costa del Sol local area sunny day palm trees",
+      "Manilva Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Manilva%20spain",
+      "https://www.pexels.com/search/Manilva%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "marbella-area",
+    "name": "Marbella",
+    "region": "Costa del Sol",
+    "description": "glamorous resort city with golden mile",
+    "image_search_queries": [
+      "Marbella Costa del Sol Spain residential street Mediterranean architecture",
+      "Marbella Costa del Sol glamorous resort city with golden mile scenic view",
+      "aerial view Marbella Spain neighborhood homes",
+      "Marbella Costa del Sol local area sunny day palm trees",
+      "Marbella Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Marbella%20spain",
+      "https://www.pexels.com/search/Marbella%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "mijas-costa",
+    "name": "Mijas Costa",
+    "region": "Mijas",
+    "description": "long sandy beaches with family resorts",
+    "image_search_queries": [
+      "Mijas Costa Mijas Spain residential street Mediterranean architecture",
+      "Mijas Costa Costa del Sol long sandy beaches with family resorts scenic view",
+      "aerial view Mijas Costa Spain neighborhood homes",
+      "Mijas Costa Mijas local area sunny day palm trees",
+      "Mijas Costa Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Mijas%20Costa%20spain",
+      "https://www.pexels.com/search/Mijas%20Costa%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "mijas-pueblo",
+    "name": "Mijas Pueblo",
+    "region": "Mijas",
+    "description": "iconic white village with donkey taxis",
+    "image_search_queries": [
+      "Mijas Pueblo Mijas Spain residential street Mediterranean architecture",
+      "Mijas Pueblo Costa del Sol iconic white village with donkey taxis scenic view",
+      "aerial view Mijas Pueblo Spain neighborhood homes",
+      "Mijas Pueblo Mijas local area sunny day palm trees",
+      "Mijas Pueblo Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Mijas%20Pueblo%20spain",
+      "https://www.pexels.com/search/Mijas%20Pueblo%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "miraflores",
+    "name": "Miraflores",
+    "region": "Mijas Costa",
+    "description": "quiet residential area with golf views",
+    "image_search_queries": [
+      "Miraflores Mijas Costa Spain residential street Mediterranean architecture",
+      "Miraflores Costa del Sol quiet residential area with golf views scenic view",
+      "aerial view Miraflores Spain neighborhood homes",
+      "Miraflores Mijas Costa local area sunny day palm trees",
+      "Miraflores Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Miraflores%20spain",
+      "https://www.pexels.com/search/Miraflores%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "nerja",
+    "name": "Nerja",
+    "region": "Axarquía",
+    "description": "dramatic balcony of Europe with caves",
+    "image_search_queries": [
+      "Nerja Axarquía Spain residential street Mediterranean architecture",
+      "Nerja Costa del Sol dramatic balcony of Europe with caves scenic view",
+      "aerial view Nerja Spain neighborhood homes",
+      "Nerja Axarquía local area sunny day palm trees",
+      "Nerja Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Nerja%20spain",
+      "https://www.pexels.com/search/Nerja%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "nueva-andalucia",
+    "name": "Nueva Andalucía",
+    "region": "Marbella",
+    "description": "golf valley with luxury villas",
+    "image_search_queries": [
+      "Nueva Andalucía Marbella Spain residential street Mediterranean architecture",
+      "Nueva Andalucía Costa del Sol golf valley with luxury villas scenic view",
+      "aerial view Nueva Andalucía Spain neighborhood homes",
+      "Nueva Andalucía Marbella local area sunny day palm trees",
+      "Nueva Andalucía Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Nueva%20Andaluc%C3%ADa%20spain",
+      "https://www.pexels.com/search/Nueva%20Andaluc%C3%ADa%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "ojen",
+    "name": "Ojén",
+    "region": "Marbella Mountains",
+    "description": "charming mountain village above Marbella",
+    "image_search_queries": [
+      "Ojén Marbella Mountains Spain residential street Mediterranean architecture",
+      "Ojén Costa del Sol charming mountain village above Marbella scenic view",
+      "aerial view Ojén Spain neighborhood homes",
+      "Ojén Marbella Mountains local area sunny day palm trees",
+      "Ojén Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Oj%C3%A9n%20spain",
+      "https://www.pexels.com/search/Oj%C3%A9n%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "pueblo-nuevo",
+    "name": "Pueblo Nuevo",
+    "region": "Sotogrande",
+    "description": "local Spanish village near golf resorts",
+    "image_search_queries": [
+      "Pueblo Nuevo Sotogrande Spain residential street Mediterranean architecture",
+      "Pueblo Nuevo Costa del Sol local Spanish village near golf resorts scenic view",
+      "aerial view Pueblo Nuevo Spain neighborhood homes",
+      "Pueblo Nuevo Sotogrande local area sunny day palm trees",
+      "Pueblo Nuevo Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Pueblo%20Nuevo%20spain",
+      "https://www.pexels.com/search/Pueblo%20Nuevo%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "puerto-banus",
+    "name": "Puerto Banús",
+    "region": "Marbella",
+    "description": "luxury marina with superyachts and boutiques",
+    "image_search_queries": [
+      "Puerto Banús Marbella Spain residential street Mediterranean architecture",
+      "Puerto Banús Costa del Sol luxury marina with superyachts and boutiques scenic view",
+      "aerial view Puerto Banús Spain neighborhood homes",
+      "Puerto Banús Marbella local area sunny day palm trees",
+      "Puerto Banús Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Puerto%20Ban%C3%BAs%20spain",
+      "https://www.pexels.com/search/Puerto%20Ban%C3%BAs%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "puerto-de-la-duquesa",
+    "name": "Puerto de la Duquesa",
+    "region": "Manilva",
+    "description": "charming marina village with restaurants",
+    "image_search_queries": [
+      "Puerto de la Duquesa Manilva Spain residential street Mediterranean architecture",
+      "Puerto de la Duquesa Costa del Sol charming marina village with restaurants scenic view",
+      "aerial view Puerto de la Duquesa Spain neighborhood homes",
+      "Puerto de la Duquesa Manilva local area sunny day palm trees",
+      "Puerto de la Duquesa Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Puerto%20de%20la%20Duquesa%20spain",
+      "https://www.pexels.com/search/Puerto%20de%20la%20Duquesa%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "rincon-de-la-victoria",
+    "name": "Rincón de la Victoria",
+    "region": "Eastern Málaga",
+    "description": "family beach town near Málaga city",
+    "image_search_queries": [
+      "Rincón de la Victoria Eastern Málaga Spain residential street Mediterranean architecture",
+      "Rincón de la Victoria Costa del Sol family beach town near Málaga city scenic view",
+      "aerial view Rincón de la Victoria Spain neighborhood homes",
+      "Rincón de la Victoria Eastern Málaga local area sunny day palm trees",
+      "Rincón de la Victoria Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Rinc%C3%B3n%20de%20la%20Victoria%20spain",
+      "https://www.pexels.com/search/Rinc%C3%B3n%20de%20la%20Victoria%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "riviera-del-sol",
+    "name": "Riviera del Sol",
+    "region": "Mijas Costa",
+    "description": "hillside residential area with sea views",
+    "image_search_queries": [
+      "Riviera del Sol Mijas Costa Spain residential street Mediterranean architecture",
+      "Riviera del Sol Costa del Sol hillside residential area with sea views scenic view",
+      "aerial view Riviera del Sol Spain neighborhood homes",
+      "Riviera del Sol Mijas Costa local area sunny day palm trees",
+      "Riviera del Sol Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Riviera%20del%20Sol%20spain",
+      "https://www.pexels.com/search/Riviera%20del%20Sol%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "sabinillas",
+    "name": "Sabinillas",
+    "region": "Manilva",
+    "description": "authentic Spanish coastal village",
+    "image_search_queries": [
+      "Sabinillas Manilva Spain residential street Mediterranean architecture",
+      "Sabinillas Costa del Sol authentic Spanish coastal village scenic view",
+      "aerial view Sabinillas Spain neighborhood homes",
+      "Sabinillas Manilva local area sunny day palm trees",
+      "Sabinillas Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Sabinillas%20spain",
+      "https://www.pexels.com/search/Sabinillas%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "san-pedro",
+    "name": "San Pedro de Alcántara",
+    "region": "Marbella West",
+    "description": "local town with boulevard and beach",
+    "image_search_queries": [
+      "San Pedro de Alcántara Marbella West Spain residential street Mediterranean architecture",
+      "San Pedro de Alcántara Costa del Sol local town with boulevard and beach scenic view",
+      "aerial view San Pedro de Alcántara Spain neighborhood homes",
+      "San Pedro de Alcántara Marbella West local area sunny day palm trees",
+      "San Pedro de Alcántara Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/San%20Pedro%20de%20Alc%C3%A1ntara%20spain",
+      "https://www.pexels.com/search/San%20Pedro%20de%20Alc%C3%A1ntara%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "san-roque-club",
+    "name": "San Roque Club",
+    "region": "San Roque",
+    "description": "prestigious golf resort community",
+    "image_search_queries": [
+      "San Roque Club San Roque Spain residential street Mediterranean architecture",
+      "San Roque Club Costa del Sol prestigious golf resort community scenic view",
+      "aerial view San Roque Club Spain neighborhood homes",
+      "San Roque Club San Roque local area sunny day palm trees",
+      "San Roque Club Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/San%20Roque%20Club%20spain",
+      "https://www.pexels.com/search/San%20Roque%20Club%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "selwo",
+    "name": "Selwo",
+    "region": "Estepona",
+    "description": "hillside community near safari park",
+    "image_search_queries": [
+      "Selwo Estepona Spain residential street Mediterranean architecture",
+      "Selwo Costa del Sol hillside community near safari park scenic view",
+      "aerial view Selwo Spain neighborhood homes",
+      "Selwo Estepona local area sunny day palm trees",
+      "Selwo Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Selwo%20spain",
+      "https://www.pexels.com/search/Selwo%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "sotogrande-alto",
+    "name": "Sotogrande Alto",
+    "region": "Sotogrande",
+    "description": "elevated exclusive residential area",
+    "image_search_queries": [
+      "Sotogrande Alto Sotogrande Spain residential street Mediterranean architecture",
+      "Sotogrande Alto Costa del Sol elevated exclusive residential area scenic view",
+      "aerial view Sotogrande Alto Spain neighborhood homes",
+      "Sotogrande Alto Sotogrande local area sunny day palm trees",
+      "Sotogrande Alto Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Sotogrande%20Alto%20spain",
+      "https://www.pexels.com/search/Sotogrande%20Alto%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "sotogrande-costa",
+    "name": "Sotogrande Costa",
+    "region": "Sotogrande",
+    "description": "luxury marina and polo grounds",
+    "image_search_queries": [
+      "Sotogrande Costa Sotogrande Spain residential street Mediterranean architecture",
+      "Sotogrande Costa Costa del Sol luxury marina and polo grounds scenic view",
+      "aerial view Sotogrande Costa Spain neighborhood homes",
+      "Sotogrande Costa Sotogrande local area sunny day palm trees",
+      "Sotogrande Costa Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Sotogrande%20Costa%20spain",
+      "https://www.pexels.com/search/Sotogrande%20Costa%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "tolox",
+    "name": "Tolox",
+    "region": "Sierra de las Nieves",
+    "description": "spa village in national park",
+    "image_search_queries": [
+      "Tolox Sierra de las Nieves Spain residential street Mediterranean architecture",
+      "Tolox Costa del Sol spa village in national park scenic view",
+      "aerial view Tolox Spain neighborhood homes",
+      "Tolox Sierra de las Nieves local area sunny day palm trees",
+      "Tolox Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Tolox%20spain",
+      "https://www.pexels.com/search/Tolox%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "torre-del-mar",
+    "name": "Torre del Mar",
+    "region": "Axarquía",
+    "description": "popular beach resort with promenade",
+    "image_search_queries": [
+      "Torre del Mar Axarquía Spain residential street Mediterranean architecture",
+      "Torre del Mar Costa del Sol popular beach resort with promenade scenic view",
+      "aerial view Torre del Mar Spain neighborhood homes",
+      "Torre del Mar Axarquía local area sunny day palm trees",
+      "Torre del Mar Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Torre%20del%20Mar%20spain",
+      "https://www.pexels.com/search/Torre%20del%20Mar%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "torremolinos",
+    "name": "Torremolinos",
+    "region": "Costa del Sol",
+    "description": "vibrant resort town with diverse beaches",
+    "image_search_queries": [
+      "Torremolinos Costa del Sol Spain residential street Mediterranean architecture",
+      "Torremolinos Costa del Sol vibrant resort town with diverse beaches scenic view",
+      "aerial view Torremolinos Spain neighborhood homes",
+      "Torremolinos Costa del Sol local area sunny day palm trees",
+      "Torremolinos Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Torremolinos%20spain",
+      "https://www.pexels.com/search/Torremolinos%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "torrox",
+    "name": "Torrox",
+    "region": "Axarquía",
+    "description": "best climate in Europe with Roman ruins",
+    "image_search_queries": [
+      "Torrox Axarquía Spain residential street Mediterranean architecture",
+      "Torrox Costa del Sol best climate in Europe with Roman ruins scenic view",
+      "aerial view Torrox Spain neighborhood homes",
+      "Torrox Axarquía local area sunny day palm trees",
+      "Torrox Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/Torrox%20spain",
+      "https://www.pexels.com/search/Torrox%20costa%20del%20sol/"
+    ]
+  },
+  {
+    "slug": "velez-malaga",
+    "name": "Vélez-Málaga",
+    "region": "Axarquía",
+    "description": "historic capital of Axarquía region",
+    "image_search_queries": [
+      "Vélez-Málaga Axarquía Spain residential street Mediterranean architecture",
+      "Vélez-Málaga Costa del Sol historic capital of Axarquía region scenic view",
+      "aerial view Vélez-Málaga Spain neighborhood homes",
+      "Vélez-Málaga Axarquía local area sunny day palm trees",
+      "Vélez-Málaga Spain traditional architecture whitewashed buildings"
+    ],
+    "recommended_sources": [
+      "https://unsplash.com/s/photos/V%C3%A9lez-M%C3%A1laga%20spain",
+      "https://www.pexels.com/search/V%C3%A9lez-M%C3%A1laga%20costa%20del%20sol/"
+    ]
+  }
+]
