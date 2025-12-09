@@ -41,6 +41,30 @@ import {
 import { demoTradespeople, Tradesperson } from "@/data/tradespeople";
 import { SEO } from "@/components/SEO";
 
+
+// Costa del Sol trade pricing by category (estimates, +30% adjusted)
+const PRICING_DATA: Record<string, { callOut: string; dayRate: string; commonJob: { name: string; price: string } }> = {
+  "plumber": { callOut: "€65 - €100", dayRate: "€100 - €160", commonJob: { name: "Boiler Service", price: "€100 - €195" } },
+  "electrician": { callOut: "€65 - €100", dayRate: "€130 - €210", commonJob: { name: "Full Rewire (3 bed)", price: "€3,900 - €5,200" } },
+  "air-conditioning": { callOut: "€80 - €130", dayRate: "€155 - €235", commonJob: { name: "AC Unit Installation", price: "€975 - €1,950" } },
+  "gardener": { callOut: "€50 - €80", dayRate: "€100 - €160", commonJob: { name: "Monthly Maintenance", price: "€155 - €260" } },
+  "pool-maintenance": { callOut: "€65 - €100", dayRate: "€100 - €160", commonJob: { name: "Monthly Pool Service", price: "€100 - €195" } },
+  "builder": { callOut: "€80 - €130", dayRate: "€100 - €160", commonJob: { name: "Bathroom Renovation", price: "€5,200 - €10,400" } },
+  "painter-decorator": { callOut: "€50 - €80", dayRate: "€130 - €160", commonJob: { name: "Room Repaint", price: "€260 - €520" } },
+  "locksmith": { callOut: "€65 - €130", dayRate: "€130 - €195", commonJob: { name: "Lock Change", price: "€100 - €195" } },
+  "cleaning-services": { callOut: "€15 - €25/hour", dayRate: "N/A", commonJob: { name: "Deep Clean (3 bed)", price: "€195 - €325" } },
+  "security-alarms": { callOut: "€80 - €130", dayRate: "€155 - €235", commonJob: { name: "Alarm System Install", price: "€650 - €1,950" } },
+  "removals": { callOut: "Free Quote", dayRate: "€260 - €520", commonJob: { name: "Local Move (3 bed)", price: "€520 - €1,040" } },
+  "carpenter": { callOut: "€65 - €100", dayRate: "€100 - €160", commonJob: { name: "Built-in Wardrobe", price: "€1,040 - €2,600" } },
+  "handyman": { callOut: "€50 - €80", dayRate: "€100 - €130", commonJob: { name: "Half Day Jobs", price: "€65 - €100" } },
+  "pest-control": { callOut: "€65 - €100", dayRate: "€130 - €195", commonJob: { name: "Pest Treatment", price: "€130 - €260" } },
+  "solar-panels": { callOut: "Free Survey", dayRate: "Quote Based", commonJob: { name: "5kW System Install", price: "€6,500 - €9,750" } },
+  "window-cleaning": { callOut: "N/A", dayRate: "€80 - €130", commonJob: { name: "Villa Windows", price: "€65 - €130" } },
+  "glazier": { callOut: "€80 - €130", dayRate: "€130 - €195", commonJob: { name: "Window Replacement", price: "€260 - €650" } },
+  "property-management": { callOut: "Free Consultation", dayRate: "Monthly Fee", commonJob: { name: "Monthly Management", price: "€130 - €390" } },
+};
+const DEFAULT_PRICING = { callOut: "€65 - €100", dayRate: "€100 - €195", commonJob: { name: "Standard Service", price: "Quote on Request" } };
+
 // Extended interface for the full profile
 interface TradespersonProfileData extends Tradesperson {
   type: "Company" | "Sole Trader";
@@ -124,6 +148,7 @@ export default function TradespersonProfile({
     Object.entries(profile).filter(([_, v]) => v !== undefined)
   ) : {};
   const safeProfile = { ...defaultData, ...cleanProfile } as TradespersonProfileData;
+  const pricing = PRICING_DATA[safeProfile.tradeCategorySlug] || DEFAULT_PRICING;
 
   useEffect(() => {
     // Skip loading if we already have initialData
@@ -506,7 +531,7 @@ export default function TradespersonProfile({
                       Standard Rate Guide
                     </h3>
                     <p className="text-sm text-gray-500">
-                      Typical pricing for common jobs in Marbella. Final quote
+                      Estimated pricing for this trade category. Final quote
                       provided upon inspection.
                     </p>
                   </div>
@@ -527,7 +552,7 @@ export default function TradespersonProfile({
                       Standard Call Out
                     </div>
                     <div className="font-bold text-[#0066CC] text-right">
-                      €60 - €80
+                      {pricing.callOut}
                     </div>
                   </div>
 
@@ -537,17 +562,17 @@ export default function TradespersonProfile({
                       Daily Labor Rate
                     </div>
                     <div className="font-bold text-[#0066CC] text-right">
-                      €180 - €250
+                      {pricing.dayRate}
                     </div>
                   </div>
 
                   {/* Item 3 */}
                   <div className="flex flex-row justify-between items-center px-6 py-4 border-b border-[#F3F4F6] hover:bg-gray-50 transition-colors">
                     <div className="font-medium text-[#0a1f44]">
-                      Standard Boiler Service
+                      {pricing.commonJob.name}
                     </div>
                     <div className="font-bold text-[#0066CC] text-right">
-                      €90 Fixed
+                      {pricing.commonJob.price}
                     </div>
                   </div>
                 </div>
