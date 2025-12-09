@@ -96,6 +96,8 @@ interface TradespersonProfileData extends Tradesperson {
   insurance?: string;
   street?: string;
   postal_code?: string;
+  latitude?: number;
+  longitude?: number;
   bio: string;
   areasCovered: string[];
   team?: {
@@ -707,15 +709,18 @@ export default function TradespersonProfile({
                 </h3>
               </div>
               <div className="relative h-[200px] w-full">
-                <img
-                  src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&h=400&fit=crop"
-                  alt="Map of Marbella"
-                  className="w-full h-full object-cover"
+                <iframe
+                  width="100%"
+                  height="200"
+                  frameBorder="0"
+                  scrolling="no"
+                  src={`https://www.openstreetmap.org/export/embed.html?bbox=${(safeProfile.longitude || -4.88) - 0.18}%2C${(safeProfile.latitude || 36.51) - 0.12}%2C${(safeProfile.longitude || -4.88) + 0.18}%2C${(safeProfile.latitude || 36.51) + 0.12}&layer=mapnik&marker=${safeProfile.latitude || 36.51}%2C${safeProfile.longitude || -4.88}`}
+                  style={{ border: "none" }}
                 />
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm border border-gray-200 px-4 py-2 rounded-full shadow-lg flex items-center gap-2 whitespace-nowrap">
                   <MapPin className="w-4 h-4 text-[#FF8A00]" />
                   <span className="text-[#0a1f44] font-bold text-sm">
-                    Covering Marbella, Estepona & Mijas
+                    Covering {safeProfile.location} & surrounding areas (20km)
                   </span>
                 </div>
               </div>
