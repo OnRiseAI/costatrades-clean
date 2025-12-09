@@ -69,7 +69,7 @@ export function Navigation() {
               </button>
               <Link href="/" className="hidden md:flex items-center">
                 <img
-                  src="/images/logo.webp"
+                  src="/images/logo.svg"
                   alt="CostaTrades logo"
                   className="w-[48px] h-[48px] rounded-2xl"
                   width="48"
