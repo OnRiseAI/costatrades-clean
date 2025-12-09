@@ -530,9 +530,6 @@ export default function TradespersonProfile({
                 ))}
               </div>
             </section>
-                </div>
-              </div>
-            </section>
 
             {/* NEW SECTION: PRICING RATE CARD */}
             <section>
