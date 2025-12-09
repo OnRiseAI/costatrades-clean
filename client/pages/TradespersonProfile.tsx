@@ -717,12 +717,6 @@ export default function TradespersonProfile({
                   src={`https://www.openstreetmap.org/export/embed.html?bbox=${(safeProfile.longitude || -4.88) - 0.18}%2C${(safeProfile.latitude || 36.51) - 0.12}%2C${(safeProfile.longitude || -4.88) + 0.18}%2C${(safeProfile.latitude || 36.51) + 0.12}&layer=mapnik&marker=${safeProfile.latitude || 36.51}%2C${safeProfile.longitude || -4.88}`}
                   style={{ border: "none" }}
                 />
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm border border-gray-200 px-4 py-2 rounded-full shadow-lg flex items-center gap-2 whitespace-nowrap">
-                  <MapPin className="w-4 h-4 text-[#FF8A00]" />
-                  <span className="text-[#0a1f44] font-bold text-sm">
-                    Covering {safeProfile.location} & surrounding areas (20km)
-                  </span>
-                </div>
               </div>
             </section>
           </div>
