@@ -603,7 +603,6 @@ export default function TradespersonProfile({
                 </div>
               </div>
             </section>
-
             {/* UPGRADE 1: THE "GOOGLE REVIEWS" DASHBOARD */}
             <section className="bg-[#F9FAFB] rounded-xl p-8 border border-gray-100">
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
@@ -611,53 +610,66 @@ export default function TradespersonProfile({
                   Client Reviews
                 </h2>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm"
-                  >
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
-                          <img
-                            src={`https://i.pravatar.cc/150?u=${i + 10}`}
-                            alt="User"
-                            className="w-full h-full object-cover"
-                          />
+              {safeProfile.googleReviews && safeProfile.googleReviews.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {safeProfile.googleReviews.slice(0, 4).map((review: any, i: number) => (
+                    <div key={i} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full bg-[#0a1f44] flex items-center justify-center text-white font-bold">
+                            {review.reviewer_name?.charAt(0) || "U"}
+                          </div>
+                          <div className="font-bold text-[#0a1f44]">
+                            {review.reviewer_name || "Anonymous"}
+                          </div>
                         </div>
-                        <div className="font-bold text-[#0a1f44]">
-                          Client Name
+                        <div className="text-xs text-gray-400">
+                          {review.published_at ? new Date(review.published_at).toLocaleDateString() : ""}
                         </div>
                       </div>
-                      <div className="flex items-center gap-1 text-xs text-gray-400">
-                        <span>3 days ago</span>
-                        <div className="w-3 h-3 bg-gray-200 rounded-full"></div>
+                      <div className="flex text-[#FFB400] mb-3">
+                        {[...Array(review.rating || 5)].map((_, star) => (
+                          <Star key={star} className="w-4 h-4 fill-current" />
+                        ))}
                       </div>
+                      {review.text && (
+                        <p className="text-gray-700 leading-relaxed text-sm mb-4">
+                          &quot;{review.text}&quot;
+                        </p>
+                      )}
+                      {review.response_from_owner && (
+                        <div className="bg-[#EFF6FF] rounded-md p-3 mt-4">
+                          <p className="text-xs text-blue-800">
+                            <span className="font-bold">Business Response:</span> {review.response_from_owner}
+                          </p>
+                        </div>
+                      )}
                     </div>
-                    <div className="flex text-[#FFB400] mb-3">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <Star key={star} className="w-4 h-4 fill-current" />
-                      ))}
-                    </div>
-                    <p className="text-gray-700 leading-relaxed text-sm mb-4">
-                      "German Precision was absolutely fantastic. Arrived
-                      exactly on time, fixed the fuse box in 20 minutes, and
-                      cleaned up."
-                    </p>
-                    <div className="bg-[#EFF6FF] rounded-md p-3 mt-4">
-                      <p className="text-xs text-blue-800">
-                        <span className="font-bold">Business Response:</span>{" "}
-                        "Thank you, Sarah! Glad we could help with the
-                        emergency."
-                      </p>
-                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-12">
+                  <div className="w-20 h-20 mx-auto mb-6 bg-[#FFF7ED] rounded-full flex items-center justify-center">
+                    <Star className="w-10 h-10 text-[#FF8A00]" />
                   </div>
-                ))}
-              </div>
+                  <h3 className="text-xl font-bold text-[#0a1f44] mb-2">
+                    Be the first to review {safeProfile.businessName}
+                  </h3>
+                  <p className="text-gray-500 mb-6">
+                    Share your experience and help others find great tradespeople.
+                  </p>
+                  
+                    href={safeProfile.googleMapsUrl || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#0a1f44] text-white font-bold rounded-lg hover:bg-[#1a3a5c] transition-colors"
+                  >
+                    <Star className="w-5 h-5" />
+                    Write a Review on Google
+                  </a>
+                </div>
+              )}
             </section>
-
             {/* Gallery */}
             {Array.isArray(safeProfile.portfolio) && safeProfile.portfolio.length > 0 && (
             <section>

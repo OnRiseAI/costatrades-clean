@@ -56,6 +56,22 @@ async function getTradesperson(slug: string): Promise<TradespersonData | null> {
   return data as TradespersonData;
 }
 
+async function getReviews(placeId: string) {
+  if (!placeId) return [];
+  const { data, error } = await supabase
+    .from("google_maps_reviews")
+    .select("*")
+    .eq("place_id", placeId)
+    .order("published_at", { ascending: false })
+    .limit(10);
+  if (error || !data) {
+    console.error("Error fetching reviews:", error);
+    return [];
+  }
+  return data;
+}
+
+
 // Transform Supabase data to match TradespersonProfile expected format
 function transformToProfileData(data: TradespersonData) {
   // Parse images JSON string to array
@@ -169,7 +185,8 @@ export default async function TradespersonPage({
     console.warn("URL mismatch, showing page anyway");
   }
 
-  const profileData = transformToProfileData(data);
+  const reviews = await getReviews(data.place_id);
+  const profileData = { ...transformToProfileData(data), googleReviews: reviews };
 
   return (
     <div suppressHydrationWarning>
