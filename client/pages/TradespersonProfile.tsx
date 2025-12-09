@@ -658,7 +658,7 @@ export default function TradespersonProfile({
                   <p className="text-gray-500 mb-6">
                     Share your experience and help others find great tradespeople.
                   </p>
-                  
+                  <a
                     href={safeProfile.googleMapsUrl || "#"}
                     target="_blank"
                     rel="noopener noreferrer"
