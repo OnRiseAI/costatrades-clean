@@ -455,8 +455,8 @@ export default function TradespersonProfile({
               <div className="group relative cursor-pointer">
                 {/* Tooltip Box */}
                 <div className="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-[#1F2937] text-white text-xs font-medium px-3 py-2 rounded-md shadow-lg whitespace-nowrap transition-opacity duration-200 z-10">
-                  {safeProfile.street
-                    ? `${safeProfile.street}, ${safeProfile.postal_code}`
+                  {safeProfile.address
+                    ? `${safeProfile.address}, ${safeProfile.postal_code}`
                     : "Address available on request"}
                   {/* Arrow */}
                   <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#1F2937]"></div>
