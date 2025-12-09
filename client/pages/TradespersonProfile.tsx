@@ -65,6 +65,30 @@ const PRICING_DATA: Record<string, { callOut: string; dayRate: string; commonJob
 };
 const DEFAULT_PRICING = { callOut: "€65 - €100", dayRate: "€100 - €195", commonJob: { name: "Standard Service", price: "Quote on Request" } };
 
+// Services by trade category for SEO/AEO
+const SERVICES_DATA: Record<string, string[]> = {
+  "plumber": ["Leak Repair", "Boiler Service", "Bathroom Fitting", "Pipe Installation", "Emergency Plumbing", "Water Heater Repair"],
+  "electrician": ["Rewiring", "Fuse Box Upgrade", "Lighting Installation", "Safety Inspections", "Socket Installation", "EV Charger Install"],
+  "air-conditioning": ["AC Installation", "AC Repair", "AC Servicing", "Heat Pumps", "Duct Cleaning", "Climate Control"],
+  "gardener": ["Lawn Care", "Tree Pruning", "Garden Design", "Irrigation Systems", "Hedge Trimming", "Landscape Maintenance"],
+  "pool-maintenance": ["Pool Cleaning", "Chemical Balancing", "Filter Service", "Pool Repairs", "Pump Maintenance", "Winter Closing"],
+  "builder": ["Extensions", "Renovations", "New Builds", "Structural Work", "Roofing", "Foundation Repair"],
+  "painter-decorator": ["Interior Painting", "Exterior Painting", "Wallpapering", "Plastering", "Spray Painting", "Wood Finishing"],
+  "locksmith": ["Lock Changes", "Emergency Entry", "Key Cutting", "Security Upgrades", "Safe Opening", "UPVC Lock Repair"],
+  "cleaning-services": ["Deep Cleaning", "Regular Cleaning", "End of Tenancy", "Window Cleaning", "Carpet Cleaning", "Office Cleaning"],
+  "security-alarms": ["Alarm Installation", "CCTV Systems", "Access Control", "Alarm Monitoring", "Security Upgrades", "Intercom Systems"],
+  "removals": ["Home Removals", "Office Removals", "Packing Services", "Storage Solutions", "Piano Moving", "International Moves"],
+  "carpenter": ["Custom Furniture", "Kitchen Fitting", "Door Installation", "Wardrobes", "Flooring", "Deck Building"],
+  "handyman": ["General Repairs", "Furniture Assembly", "Mounting Services", "Minor Plumbing", "Minor Electrical", "Odd Jobs"],
+  "pest-control": ["Insect Control", "Rodent Removal", "Termite Treatment", "Bird Proofing", "Fumigation", "Prevention Plans"],
+  "solar-panels": ["Solar Installation", "Panel Maintenance", "Battery Storage", "System Design", "Energy Audits", "Inverter Repair"],
+  "window-cleaning": ["Residential Windows", "Commercial Windows", "Conservatory Cleaning", "Gutter Clearing", "Pressure Washing", "Solar Panel Cleaning"],
+  "glazier": ["Window Replacement", "Double Glazing", "Glass Repair", "Mirrors", "Shower Screens", "Shopfronts"],
+  "property-management": ["Tenant Management", "Rent Collection", "Property Inspections", "Maintenance Coordination", "Key Holding", "Holiday Lets"],
+};
+const DEFAULT_SERVICES = ["Residential", "Commercial", "Consultation", "Emergency Service", "Free Quotes"];
+
+
 // Extended interface for the full profile
 interface TradespersonProfileData extends Tradesperson {
   type: "Company" | "Sole Trader";
@@ -149,6 +173,7 @@ export default function TradespersonProfile({
   ) : {};
   const safeProfile = { ...defaultData, ...cleanProfile } as TradespersonProfileData;
   const pricing = PRICING_DATA[safeProfile.tradeCategorySlug] || DEFAULT_PRICING;
+  const services = SERVICES_DATA[safeProfile.tradeCategorySlug] || DEFAULT_SERVICES;
 
   useEffect(() => {
     // Skip loading if we already have initialData
@@ -495,28 +520,16 @@ export default function TradespersonProfile({
                 Services
               </h2>
               <div className="flex flex-wrap gap-3 items-center">
-                {/* Item 1: Residential */}
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#EFF6FF] border border-[#DBEAFE] rounded-full hover:border-[#1E40AF] transition-colors cursor-default">
-                  <Home className="w-4 h-4 text-[#1E40AF]" />
-                  <span className="text-xs font-bold text-[#1E40AF] uppercase tracking-wide">
-                    Residential
-                  </span>
-                </div>
-
-                {/* Item 2: Commercial */}
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#EFF6FF] border border-[#DBEAFE] rounded-full hover:border-[#1E40AF] transition-colors cursor-default">
-                  <Building className="w-4 h-4 text-[#1E40AF]" />
-                  <span className="text-xs font-bold text-[#1E40AF] uppercase tracking-wide">
-                    Commercial
-                  </span>
-                </div>
-
-                {/* Item 3: Solar Installation */}
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#EFF6FF] border border-[#DBEAFE] rounded-full hover:border-[#1E40AF] transition-colors cursor-default">
-                  <Sun className="w-4 h-4 text-[#1E40AF]" />
-                  <span className="text-xs font-bold text-[#1E40AF] uppercase tracking-wide">
-                    Solar Installation
-                  </span>
+                {services.map((service, index) => (
+                  <div key={index} className="inline-flex items-center gap-2 px-4 py-2 bg-[#EFF6FF] border border-[#DBEAFE] rounded-full hover:border-[#1E40AF] transition-colors cursor-default">
+                    <CheckCircle className="w-4 h-4 text-[#1E40AF]" />
+                    <span className="text-xs font-bold text-[#1E40AF] uppercase tracking-wide">
+                      {service}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </section>
                 </div>
               </div>
             </section>
