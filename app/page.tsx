@@ -177,9 +177,9 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "CostaTrades",
-    description: "Find trusted tradespeople near you on the Costa del Sol. Electricians, plumbers, builders, and more.",
+    description: "Find trusted specalists near you on the Costa del Sol. Electricians, plumbers, builders, and more.",
     url: "https://costatrades.com",
-    telephone: "+34-600-000-000",
+    telephone: "+34-604-288-426",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Costa del Sol",

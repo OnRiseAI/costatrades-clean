@@ -6,9 +6,6 @@ import {
   Twitter,
   Instagram,
   Linkedin,
-  MapPin,
-  Phone,
-  Mail,
   ChevronDown,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -43,34 +40,38 @@ export function Footer() {
             <p className="text-sm font-medium text-green-600 bg-green-50 inline-block px-3 py-1 rounded-full">
               Trusted by 500+ Pros
             </p>
-            <p className="text-sm text-gray-500 leading-relaxed">
+            <p className="text-sm text-gray-600 leading-relaxed">
               Costa del Sol's most trusted platform connecting homeowners with
               verified professionals.
             </p>
 
             {/* Social Icons */}
             <div className="flex items-center gap-4 pt-2">
-              <a
+              
                 href="#"
-                className="text-gray-400 hover:text-[#0a1f44] transition-colors"
+                aria-label="Facebook"
+                className="text-gray-600 hover:text-[#0a1f44] transition-colors"
               >
                 <Facebook className="h-5 w-5" />
               </a>
-              <a
+              
                 href="#"
-                className="text-gray-400 hover:text-[#0a1f44] transition-colors"
+                aria-label="Twitter"
+                className="text-gray-600 hover:text-[#0a1f44] transition-colors"
               >
                 <Twitter className="h-5 w-5" />
               </a>
-              <a
+              
                 href="#"
-                className="text-gray-400 hover:text-[#0a1f44] transition-colors"
+                aria-label="Instagram"
+                className="text-gray-600 hover:text-[#0a1f44] transition-colors"
               >
                 <Instagram className="h-5 w-5" />
               </a>
-              <a
+              
                 href="#"
-                className="text-gray-400 hover:text-[#0a1f44] transition-colors"
+                aria-label="LinkedIn"
+                className="text-gray-600 hover:text-[#0a1f44] transition-colors"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -83,12 +84,12 @@ export function Footer() {
               onClick={() => toggleSection("company")}
               className="flex items-center justify-between w-full md:cursor-default group"
             >
-              <h4 className="font-bold text-[#0a1f44] text-sm uppercase tracking-wider">
+              <p className="font-bold text-[#0a1f44] text-sm uppercase tracking-wider">
                 Company
-              </h4>
+              </p>
               <ChevronDown
                 className={cn(
-                  "w-4 h-4 md:hidden text-gray-400 transition-transform",
+                  "w-4 h-4 md:hidden text-gray-600 transition-transform",
                   openSection === "company" ? "rotate-180" : "",
                 )}
               />
@@ -110,7 +111,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a
+                
                   href="https://costatrades.com/verification-promise"
                   className="text-sm text-gray-600 hover:text-[#0a1f44]"
                 >
@@ -158,12 +159,12 @@ export function Footer() {
               onClick={() => toggleSection("homeowners")}
               className="flex items-center justify-between w-full md:cursor-default group"
             >
-              <h4 className="font-bold text-[#0a1f44] text-sm uppercase tracking-wider">
+              <p className="font-bold text-[#0a1f44] text-sm uppercase tracking-wider">
                 Homeowners
-              </h4>
+              </p>
               <ChevronDown
                 className={cn(
-                  "w-4 h-4 md:hidden text-gray-400 transition-transform",
+                  "w-4 h-4 md:hidden text-gray-600 transition-transform",
                   openSection === "homeowners" ? "rotate-180" : "",
                 )}
               />
@@ -217,12 +218,12 @@ export function Footer() {
               onClick={() => toggleSection("pros")}
               className="flex items-center justify-between w-full md:cursor-default group"
             >
-              <h4 className="font-bold text-[#0a1f44] text-sm uppercase tracking-wider">
+              <p className="font-bold text-[#0a1f44] text-sm uppercase tracking-wider">
                 For Professionals
-              </h4>
+              </p>
               <ChevronDown
                 className={cn(
-                  "w-4 h-4 md:hidden text-gray-400 transition-transform",
+                  "w-4 h-4 md:hidden text-gray-600 transition-transform",
                   openSection === "pros" ? "rotate-180" : "",
                 )}
               />
@@ -269,10 +270,10 @@ export function Footer() {
       <div className="bg-gray-50 py-8 border-t border-gray-200">
         <div className="container-custom">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-            <div className="text-gray-500">
-              © 2024 CostaTrade. {t("footer.allRights")}
+            <div className="text-gray-600">
+              © {new Date().getFullYear()} CostaTrade. All rights reserved.
             </div>
-            <div className="flex items-center gap-6 text-gray-500">
+            <div className="flex items-center gap-6 text-gray-600">
               <Link
                 href="/terms"
                 className="hover:text-[#0a1f44] transition-colors"
@@ -285,7 +286,7 @@ export function Footer() {
               >
                 Privacy & Cookies
               </Link>
-              <a
+              
                 href="/sitemap.xml"
                 className="hover:text-[#0a1f44] transition-colors"
               >
