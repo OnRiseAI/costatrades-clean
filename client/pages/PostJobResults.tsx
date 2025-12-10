@@ -1,11 +1,6 @@
 "use client";
-import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(
-  "https://tyzydfqfffxwvrrfhsdm.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR5enlkZnFmZmZ4d3ZycmZoc2RtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM0NDQ3NjAsImV4cCI6MjA3OTAyMDc2MH0.F3oEdidvOP6ORwhjWLkYHfdkogY2isIW2IH10Wt7rjY"
-);
-
+import { supabase } from "@/lib/supabase";
 import { useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -34,7 +29,6 @@ import {
   Info,
   Loader2,
 } from "lucide-react";
-
 import { Progress } from "@/components/ui/progress";
 
 export default function PostJobResults() {
@@ -58,6 +52,9 @@ export default function PostJobResults() {
   }, [showQuoteForm]);
 
   // Phone Modal State
+  const [phoneModalOpen, setPhoneModalOpen] = useState(false);
+  const [phoneModalData, setPhoneModalData] = useState<any>(null);
+
   const [tradespeople, setTradespeople] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -65,13 +62,16 @@ export default function PostJobResults() {
     async function fetchTradespeople() {
       setLoading(true);
       let query = supabase.from("tradespeople").select("*");
+      
       if (category) {
         query = query.ilike("category_display", `%${category}%`);
       }
       if (postcode) {
         query = query.or(`tier2_name.ilike.%${postcode}%,tier1_name.ilike.%${postcode}%`);
       }
+      
       const { data, error } = await query.limit(20);
+      
       if (data) {
         const mapped = data.map((tp: any) => ({
           slug: tp.slug,
@@ -89,12 +89,6 @@ export default function PostJobResults() {
         setTradespeople(mapped);
       }
       setLoading(false);
-    }
-    fetchTradespeople();
-  }, [category, postcode]);
-
-  const [phoneModalOpen, setPhoneModalOpen] = useState(false);
-  const [phoneModalData, setPhoneModalData] = useState<any>(null);
     }
     fetchTradespeople();
   }, [category, postcode]);
