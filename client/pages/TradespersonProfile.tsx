@@ -751,7 +751,7 @@ export default function TradespersonProfile({
 
             <div className="space-y-4">
                   <Link
-                    href={`/post-job/results?category=${encodeURIComponent(safeProfile.tradeCategory)}&option=General%20Enquiry&postcode=${encodeURIComponent(safeProfile.location)}`}
+                    href={`/post-job/results?category=${encodeURIComponent(safeProfile.tradeCategory)}&option=General%20Enquiry&postcode=${encodeURIComponent(safeProfile.location)}&business=${safeProfile.slug}`}
                   >
                     <Button className="w-full bg-[#0066CC] hover:bg-[#0052A3] text-white font-bold h-12 text-base shadow-sm">
                       Request a Quote
