@@ -749,7 +749,7 @@ export default function TradespersonProfile({
                   </span>
                 </div>
 
-                <div className="space-y-3">
+            <div className="space-y-3">
                   <Link
                     href={`/post-job/results?category=${encodeURIComponent(safeProfile.tradeCategory)}&option=General%20Enquiry&postcode=${encodeURIComponent(safeProfile.location)}`}
                   >
@@ -758,10 +758,12 @@ export default function TradespersonProfile({
                     </Button>
                   </Link>
 
-                  <a href={`https://wa.me/${safeProfile.phone?.replace(/[^0-9]/g, "")}`} target="_blank" rel="noopener noreferrer"><Button className="w-full bg-[#25D366] hover:bg-[#1ebc57] text-white font-bold h-12 text-base shadow-sm flex items-center justify-center gap-2">
-                    <MessageCircle className="w-5 h-5 fill-current" />
-                    Chat on WhatsApp
-                  </Button>
+                  <a href={`https://wa.me/${safeProfile.phone?.replace(/[^0-9]/g, "")}`} target="_blank" rel="noopener noreferrer">
+                    <Button className="w-full bg-[#25D366] hover:bg-[#1ebc57] text-white font-bold h-12 text-base shadow-sm flex items-center justify-center gap-2">
+                      <MessageCircle className="w-5 h-5 fill-current" />
+                      Chat on WhatsApp
+                    </Button>
+                  </a>
                 </div>
 
                 <div className="mt-4 pt-4 border-t border-gray-100 text-center">
