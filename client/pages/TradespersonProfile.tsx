@@ -751,7 +751,7 @@ export default function TradespersonProfile({
 
                 <div className="space-y-3">
                   <Link
-                    href={`/post-job?area=${(safeProfile.location).toLowerCase().replace(/\s+/g, "-")}`}
+                    href={`/post-job/results?category=${encodeURIComponent(safeProfile.tradeCategory)}&option=General%20Enquiry&postcode=${encodeURIComponent(safeProfile.location)}`}
                   >
                     <Button className="w-full bg-[#0066CC] hover:bg-[#0052A3] text-white font-bold h-12 text-base shadow-sm">
                       Request a Quote
