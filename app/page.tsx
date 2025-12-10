@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import {
@@ -311,11 +312,14 @@ export default function Home() {
           ══════════════════════════════════════════════════════════════════════ */}
       <section className="relative min-h-[700px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.pexels.com/photos/4186560/pexels-photo-4186560.jpeg?auto=compress&cs=tinysrgb&w=1920"
-            alt="Modern Spanish villa"
-            className="w-full h-full object-cover"
-          />
+  <Image
+  src="https://images.pexels.com/photos/4186560/pexels-photo-4186560.jpeg?auto=compress&cs=tinysrgb&w=1920"
+  alt="Modern Spanish villa"
+  fill
+  priority
+  className="object-cover"
+  sizes="100vw"
+/>
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a1d3e]/95 via-[#0a1d3e]/85 to-[#0a1d3e]/95 z-10" />
 

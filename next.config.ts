@@ -8,7 +8,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
-
+      {
+        protocol: "https",
+        hostname: "images.pexels.com",
+      },
       {
         protocol: "https",
         hostname: "i.pravatar.cc",
@@ -20,15 +23,12 @@ const nextConfig: NextConfig = {
     ],
   },
   eslint: {
-    // Disable ESLint during builds to speed up deployment
     ignoreDuringBuilds: true,
   },
   typescript: {
-    // Disable type checking during build to avoid leaflet type issues
     ignoreBuildErrors: true,
   },
   experimental: {
-    // Enable experimental features if needed
     optimizePackageImports: ["lucide-react", "@radix-ui/*"],
   },
 };
