@@ -335,7 +335,7 @@ export default function Home() {
             Find Trusted Specialists on the Costa del Sol
           </h1>
 
-          <p className="text-xl md:text-2xl text-blue-200/90 mb-12 font-light max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/90 mb-12 font-light max-w-2xl mx-auto leading-relaxed">
             Connect with verified Home Improvement & Maintenance Professionals who speak your language.
           </p>
 
@@ -607,7 +607,7 @@ export default function Home() {
             <div className="max-w-2xl text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 backdrop-blur-sm mb-6">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-sm font-medium tracking-wide uppercase text-blue-200">High Demand Area</span>
+                <span className="text-sm font-medium tracking-wide uppercase text-white">High Demand Area</span>
               </div>
 
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
