@@ -335,7 +335,7 @@ export default function Home() {
             Find Trusted Specialists on the Costa del Sol
           </h1>
 
-          <p className="text-xl md:text-2xl text-blue-100/90 mb-12 font-light max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-blue-200/90 mb-12 font-light max-w-2xl mx-auto leading-relaxed">
             Connect with verified Home Improvement & Maintenance Professionals who speak your language.
           </p>
 
@@ -354,9 +354,9 @@ export default function Home() {
               <input
                 type="text"
                 placeholder="Villa Renovation in Marbella"
-                className="w-full py-5 px-6 pl-14 rounded-full text-lg bg-white shadow-2xl text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-500/20"
+                className="w-full py-5 px-6 pl-14 rounded-full text-lg bg-white shadow-2xl text-slate-800 placeholder:text-slate-600 focus:outline-none focus:ring-4 focus:ring-blue-500/20"
               />
-              <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400" />
+              <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-600" />
               <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#E31E24] hover:bg-[#C41218] text-white font-bold py-3 px-8 rounded-full transition-all shadow-lg hover:shadow-xl">
                 Search
               </button>
@@ -375,15 +375,15 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6">
             <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
               <MessageSquare className="w-5 h-5 text-blue-300" />
-              <span className="font-medium text-sm text-blue-100">Real customer reviews</span>
+              <span className="font-medium text-sm text-blue-200">Real customer reviews</span>
             </div>
             <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
               <ShieldCheck className="w-5 h-5 text-blue-300" />
-              <span className="font-medium text-sm text-blue-100">Transparent profiles</span>
+              <span className="font-medium text-sm text-blue-200">Transparent profiles</span>
             </div>
             <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
               <Globe className="w-5 h-5 text-blue-300" />
-              <span className="font-medium text-sm text-blue-100">Multilingual support</span>
+              <span className="font-medium text-sm text-blue-200">Multilingual support</span>
             </div>
           </div>
         </div>
@@ -403,7 +403,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">2025 Market Rates</h3>
-                  <p className="text-xs text-blue-100">Costa del Sol Average</p>
+                  <p className="text-xs text-blue-200">Costa del Sol Average</p>
                 </div>
               </div>
               <span className="hidden md:inline-flex px-3 py-1 rounded-full bg-white/10 text-xs font-medium border border-white/20">
@@ -414,7 +414,7 @@ export default function Home() {
             {/* Table - Desktop */}
             <div className="hidden md:block">
               <table className="w-full">
-                <thead className="bg-slate-50 text-slate-500 border-b border-slate-200">
+                <thead className="bg-slate-50 text-slate-600 border-b border-slate-200">
                   <tr>
                     <th className="px-6 py-4 text-left font-semibold text-xs uppercase tracking-wider">Trade / Service</th>
                     <th className="px-6 py-4 text-left font-semibold text-xs uppercase tracking-wider">2025 Market Rate</th>
@@ -490,7 +490,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <p className="text-center text-xs text-slate-400 mt-3">
+          <p className="text-center text-xs text-slate-600 mt-3">
             Estimates for licensed, English-speaking professionals. Final prices set by provider.
           </p>
         </div>
@@ -607,7 +607,7 @@ export default function Home() {
             <div className="max-w-2xl text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 backdrop-blur-sm mb-6">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-sm font-medium tracking-wide uppercase text-blue-100">High Demand Area</span>
+                <span className="text-sm font-medium tracking-wide uppercase text-blue-200">High Demand Area</span>
               </div>
 
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
@@ -617,7 +617,7 @@ export default function Home() {
                 </span>
               </h2>
 
-              <p className="text-blue-100 text-lg md:text-xl font-light mb-8 leading-relaxed">
+              <p className="text-blue-200 text-lg md:text-xl font-light mb-8 leading-relaxed">
                 Join 1500+ professionals on the Costa del Sol who are growing their business with zero upfront fees.
               </p>
 
@@ -703,8 +703,8 @@ export default function Home() {
                       <Icon className="w-6 h-6" />
                     </div>
                     <div className="font-bold text-3xl text-[#0a1f44] mb-1">{stat.value}</div>
-                    <div className="font-bold text-[#E31E24] uppercase tracking-wider text-sm mb-1">{stat.label}</div>
-                    <div className="text-slate-500 text-xs font-medium">{stat.sub}</div>
+                    <div className="font-semibold text-[#0a1f44] uppercase tracking-wider text-sm mb-1">{stat.label}</div>
+                    <div className="text-slate-600 text-xs font-medium">{stat.sub}</div>
                   </div>
                 );
               })}
@@ -777,7 +777,7 @@ export default function Home() {
             className="w-full flex items-center justify-between px-6 py-4 bg-white border border-slate-200 rounded-xl mb-8 hover:border-slate-300 transition-colors"
           >
             <span className="font-medium text-slate-700">View local tradespeople in your area</span>
-            <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${locationsOpen ? "rotate-180" : ""}`} />
+            <ChevronDown className={`w-5 h-5 text-slate-600 transition-transform duration-200 ${locationsOpen ? "rotate-180" : ""}`} />
           </button>
 
           {locationsOpen && (
@@ -800,7 +800,7 @@ export default function Home() {
                   className={`pb-3 text-sm font-medium transition-colors border-b-2 -mb-px ${
                     activeTab === tab
                       ? "text-[#0a1f44] border-[#0a1f44] font-semibold"
-                      : "text-slate-400 border-transparent hover:text-slate-600 hover:border-slate-300"
+                      : "text-slate-600 border-transparent hover:text-slate-600 hover:border-slate-300"
                   }`}
                 >
                   {tab === "popular" ? "Popular Searches" : tab === "trades" ? "Find Tradespeople" : "Cost Guides"}
