@@ -273,22 +273,22 @@ export function Footer() {
             <div className="text-gray-600">
               © {new Date().getFullYear()} CostaTrade. All rights reserved.
             </div>
-            <div className="flex items-center gap-6 text-gray-600">
+            <div className="flex items-center gap-6">
               <Link
                 href="/terms"
-                className="hover:text-[#0a1f44] transition-colors"
+                className="text-gray-600 hover:text-[#0a1f44] transition-colors"
               >
                 Terms
               </Link>
               <Link
                 href="/privacy-policy"
-                className="hover:text-[#0a1f44] transition-colors"
+                className="text-gray-600 hover:text-[#0a1f44] transition-colors"
               >
                 Privacy & Cookies
               </Link>
               
                 href="/sitemap.xml"
-                className="hover:text-[#0a1f44] transition-colors"
+                className="text-gray-600 hover:text-[#0a1f44] transition-colors"
               >
                 Sitemap
               </a>
