@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import React from "react";
 import { Navigation } from "./components/Navigation";
 import { Footer } from "./components/Footer";
-import { FooterSEOLinks } from "./components/FooterSEOLinks";
 import { Providers } from "./providers";
 import "@/global.css";
 
@@ -39,7 +38,6 @@ export default function RootLayout({
           <div className="flex flex-col min-h-screen">
             <Navigation />
             <main className="flex-1">{children}</main>
-            <FooterSEOLinks />
             <Footer />
           </div>
         </Providers>
