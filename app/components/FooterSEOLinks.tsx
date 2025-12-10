@@ -5,7 +5,21 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// AEO-optimized: Natural language phrases matching voice search queries
+const locations = [
+  { name: "Marbella", href: "/locations/marbella" },
+  { name: "Estepona", href: "/locations/estepona" },
+  { name: "Mijas", href: "/locations/mijas" },
+  { name: "Fuengirola", href: "/locations/fuengirola" },
+  { name: "Benalmádena", href: "/locations/benalmadena" },
+  { name: "Torremolinos", href: "/locations/torremolinos" },
+  { name: "Malaga", href: "/locations/malaga" },
+  { name: "Nerja", href: "/locations/nerja" },
+  { name: "Sotogrande", href: "/locations/sotogrande" },
+  { name: "San Pedro", href: "/locations/san-pedro" },
+  { name: "Benahavis", href: "/locations/benahavis" },
+  { name: "Calahonda", href: "/locations/calahonda" },
+];
+
 const popularSearches = [
   { label: "Best Electricians in Marbella", href: "/locations/marbella-area/marbella/electrician" },
   { label: "Top Rated Plumbers in Estepona", href: "/locations/estepona-manilva/estepona-town/plumber" },
@@ -21,7 +35,6 @@ const popularSearches = [
   { label: "Bathroom Renovation Experts Marbella", href: "/locations/marbella-area/marbella/bathroom-fitter" },
 ];
 
-// AEO: "Near Me" queries are top voice searches
 const findTradespeople = [
   { label: "Find a Plumber Near Me", href: "/post-job?option=Plumber" },
   { label: "Electrician Near Me Costa del Sol", href: "/post-job?option=Electrician" },
@@ -37,7 +50,6 @@ const findTradespeople = [
   { label: "Bathroom Fitter Near Me", href: "/post-job?option=Bathroom" },
 ];
 
-// AEO: Question-based content for featured snippets
 const costGuides = [
   { label: "How Much Does an Electrician Cost?", href: "/cost-guides#electrician" },
   { label: "What Do Plumbers Charge in Spain?", href: "/cost-guides#plumber" },
@@ -53,20 +65,9 @@ const costGuides = [
   { label: "Handyman Price List 2025", href: "/cost-guides#handyman" },
 ];
 
-const locations = [
-  { name: "Marbella Area", href: "/locations/marbella-area" },
-  { name: "Estepona & Manilva", href: "/locations/estepona-manilva" },
-  { name: "Fuengirola Area", href: "/locations/fuengirola-area" },
-  { name: "Benalmádena Area", href: "/locations/benalmadena-area" },
-  { name: "Mijas Costa", href: "/locations/mijas-costa" },
-  { name: "Sotogrande & San Roque", href: "/locations/sotogrande-san-roque" },
-  { name: "Málaga East & Axarquía", href: "/locations/malaga-east-axarquia" },
-  { name: "Inland Sierra Region", href: "/locations/inland-sierra-region" },
-];
-
 export function FooterSEOLinks() {
   const [activeTab, setActiveTab] = useState("popular");
-  const [locationsOpen, setLocationsOpen] = useState(false);
+  const [locationsOpen, setLocationsOpen] = useState(true);
 
   const tabs = [
     { id: "popular", label: "Popular Searches" },
@@ -88,78 +89,65 @@ export function FooterSEOLinks() {
   };
 
   return (
-    <section className="bg-gray-50 border-t border-gray-200" aria-label="Find tradespeople and services">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Expandable Locations - AEO: Geographic targeting */}
+    <section className="bg-white border-t border-slate-200">
+      <div className="container-custom py-10">
         <button
           onClick={() => setLocationsOpen(!locationsOpen)}
-          className="w-full flex items-center justify-between px-6 py-4 bg-white border border-gray-200 rounded-lg mb-8 hover:border-[#0a1f44] transition-colors"
-          aria-expanded={locationsOpen}
-          aria-controls="locations-list"
+          className="w-full flex items-center justify-between px-6 py-4 bg-white border border-slate-200 rounded-xl mb-8 hover:border-slate-300 transition-colors"
         >
-          <span className="font-semibold text-[#0a1f44]">
+          <span className="font-medium text-slate-700">
             View local tradespeople in your area
           </span>
           <ChevronDown
             className={cn(
-              "w-5 h-5 text-[#0a1f44] transition-transform",
+              "w-5 h-5 text-slate-400 transition-transform duration-200",
               locationsOpen && "rotate-180"
             )}
           />
         </button>
 
-        {locationsOpen && (
-          <nav id="locations-list" className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 px-2" aria-label="Browse by location">
-            {locations.map((loc) => (
-              <Link
-                key={loc.href}
-                href={loc.href}
-                className="text-sm text-[#0a1f44] hover:text-blue-600 hover:underline"
-              >
-                {loc.name}
-              </Link>
-            ))}
-          </nav>
-        )}
+        <div
+          className={cn(
+            "grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-4 mb-10 px-2 overflow-hidden transition-all duration-300",
+            locationsOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 mb-0"
+          )}
+        >
+          {locations.map((loc) => (
+            <Link
+              key={loc.href}
+              href={loc.href}
+              className="text-sm text-slate-600 hover:text-[#0a1f44] transition-colors"
+            >
+              {loc.name}
+            </Link>
+          ))}
+        </div>
 
-        {/* Tabs */}
-        <div className="border-b border-gray-200 mb-6" role="tablist">
-          <div className="flex gap-8">
+        <div className="border-b border-slate-200 mb-6">
+          <nav className="flex gap-8">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                role="tab"
-                aria-selected={activeTab === tab.id}
-                aria-controls={`${tab.id}-panel`}
                 className={cn(
-                  "pb-3 text-sm font-medium transition-colors relative",
+                  "pb-3 text-sm font-medium transition-colors border-b-2 -mb-px",
                   activeTab === tab.id
-                    ? "text-[#0a1f44]"
-                    : "text-gray-500 hover:text-[#0a1f44]"
+                    ? "text-[#0a1f44] border-[#0a1f44] font-semibold"
+                    : "text-slate-400 border-transparent hover:text-slate-600 hover:border-slate-300"
                 )}
               >
                 {tab.label}
-                {activeTab === tab.id && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0a1f44]" />
-                )}
               </button>
             ))}
-          </div>
+          </nav>
         </div>
 
-        {/* Tab Content */}
-        <nav
-          id={`${activeTab}-panel`}
-          role="tabpanel"
-          className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-3"
-          aria-label={tabs.find(t => t.id === activeTab)?.label}
-        >
+        <nav className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-3 text-sm">
           {getActiveContent().map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm text-gray-600 hover:text-[#0a1f44] hover:underline"
+              className="text-slate-600 hover:text-[#0a1f44] transition-colors"
             >
               {item.label}
             </Link>

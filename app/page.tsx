@@ -4,8 +4,6 @@ import { SEO } from "@/components/SEO";
 import { HomeHero } from "@/components/HomeHero";
 import { PriceGuideTable } from "@/components/PriceGuideTable";
 import { HowItWorks } from "@/components/HowItWorks";
-import { AreasWeServe } from "@/components/AreasWeServe";
-import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { FAQSection, getFAQSchema } from "@/components/FAQSection";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { CategoryCard } from "@/components/CategoryCard";
@@ -90,7 +88,6 @@ export default function Home() {
 
   const faqSchema = getFAQSchema();
 
-  // Merge schemas into a graph
   const combinedSchema = {
     "@context": "https://schema.org",
     "@graph": [organizationSchema, faqSchema],
@@ -105,18 +102,14 @@ export default function Home() {
       />
 
       <main>
-        {/* 1. Hero Section */}
         <HomeHero />
 
-        {/* 2. Market Rates (Interactive Price Guide) */}
         <div className="container-custom relative z-20 -mt-8 mb-16">
           <PriceGuideTable />
         </div>
 
-        {/* 3. How It Works (Premium Zig-Zag) */}
         <HowItWorks />
 
-        {/* 4. Popular Trades (Mediterranean Refresh) */}
         <section className="py-20 bg-white">
           <div className="container-custom">
             <div className="text-center mb-12">
@@ -141,20 +134,13 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 5. Pro Growth Band (The "Claim" Strategy) */}
         <ProGrowthBand />
 
-        {/* 6. Why CostaTrades? (Trust & Stats) */}
         <WhyCostaTrades />
 
-        {/* 7. FAQ Section (Expanded) */}
         <FAQSection />
-
-        {/* 8. Areas We Cover (SEO Footer) */}
-        <AreasWeServe />
       </main>
 
-      {/* Mobile Sticky CTA */}
       <StickyMobileCTA />
     </div>
   );
