@@ -758,7 +758,7 @@ export default function TradespersonProfile({
                     </Button>
                   </Link>
 
-                  <Button className="w-full bg-[#25D366] hover:bg-[#1ebc57] text-white font-bold h-12 text-base shadow-sm flex items-center justify-center gap-2">
+                  <a href={`https://wa.me/${safeProfile.phone?.replace(/[^0-9]/g, "")}`} target="_blank" rel="noopener noreferrer"><Button className="w-full bg-[#25D366] hover:bg-[#1ebc57] text-white font-bold h-12 text-base shadow-sm flex items-center justify-center gap-2">
                     <MessageCircle className="w-5 h-5 fill-current" />
                     Chat on WhatsApp
                   </Button>
