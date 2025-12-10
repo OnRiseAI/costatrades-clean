@@ -749,7 +749,7 @@ export default function TradespersonProfile({
                   </span>
                 </div>
 
-            <div className="space-y-3">
+            <div className="space-y-4">
                   <Link
                     href={`/post-job/results?category=${encodeURIComponent(safeProfile.tradeCategory)}&option=General%20Enquiry&postcode=${encodeURIComponent(safeProfile.location)}`}
                   >
