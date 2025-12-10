@@ -95,41 +95,6 @@ export default function PostJobResults() {
 
   const [phoneModalOpen, setPhoneModalOpen] = useState(false);
   const [phoneModalData, setPhoneModalData] = useState<any>(null);
-
-  const [tradespeople, setTradespeople] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchTradespeople() {
-      setLoading(true);
-      let query = supabase.from("tradespeople").select("*");
-      
-      if (category) {
-        query = query.ilike("category_display", `%${category}%`);
-      }
-      if (postcode) {
-        query = query.or(`tier2_name.ilike.%${postcode}%,tier1_name.ilike.%${postcode}%`);
-      }
-      
-      const { data, error } = await query.limit(20);
-      
-      if (data) {
-        const mapped = data.map((tp: any) => ({
-          slug: tp.slug,
-          businessName: tp.name,
-          tradeCategory: tp.category_display,
-          tradeCategorySlug: tp.costatrades_category,
-          location: tp.tier2_name,
-          rating: tp.rating || 0,
-          reviewCount: tp.reviews_count || 0,
-          verified: tp.verified || false,
-          phone: tp.phone,
-          profilePhoto: tp.images ? JSON.parse(tp.images)[0] : null,
-          url_path: tp.url_path,
-        }));
-        setTradespeople(mapped);
-      }
-      setLoading(false);
     }
     fetchTradespeople();
   }, [category, postcode]);
