@@ -29,6 +29,9 @@
       "@/*": [
         "./*"
       ],
+      "@/pages/*": [
+        "./page-components/*"
+      ],
       "@shared/*": [
         "./shared/*"
       ]
@@ -49,7 +52,7 @@
     "hooks/**/*",
     "lib/**/*",
     "data/**/*",
-    "pages/**/*",
+    "page-components/**/*",
     "next-env.d.ts",
     "shared/**/*",
     ".next/types/**/*.ts",
