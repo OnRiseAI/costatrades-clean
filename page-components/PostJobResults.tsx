@@ -814,9 +814,13 @@ export default function PostJobResults() {
             <div className="flex items-center justify-between mb-4">
               <div>
                 <h1 className="text-xl font-bold text-gray-900">
-                  {totalCount} {CATEGORY_SLUG_TO_DISPLAY[TRADE_KEY_TO_CATEGORY_SLUG[category] || category] || category}{totalCount !== 1 ? 's' : ''} found in {postcode}
+                  {loading ? (
+                    "Searching..."
+                  ) : (
+                    `${totalCount} ${CATEGORY_SLUG_TO_DISPLAY[TRADE_KEY_TO_CATEGORY_SLUG[category] || category] || category}${totalCount !== 1 ? 's' : ''} found in ${postcode}`
+                  )}
                 </h1>
-                {totalCount > ITEMS_PER_PAGE && (
+                {!loading && totalCount > ITEMS_PER_PAGE && (
                   <p className="text-sm text-gray-500 mt-1">
                     Showing {startItem}-{endItem} of {totalCount}
                   </p>
@@ -829,7 +833,28 @@ export default function PostJobResults() {
               </select>
             </div>
 
-            {tradespeople.map((tradesperson) => (
+            {loading ? (
+              <div className="flex flex-col items-center justify-center py-12">
+                <Loader2 className="h-10 w-10 animate-spin text-[#0a1f44] mb-4" />
+                <p className="text-gray-600">Finding professionals...</p>
+              </div>
+            ) : tradespeople.length === 0 ? (
+              <div className="bg-white rounded-2xl p-12 shadow-sm border border-gray-100 text-center">
+                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Search className="h-8 w-8 text-gray-400" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">No results found</h3>
+                <p className="text-gray-600 mb-6">
+                  We couldn't find any {category || "professionals"} in {postcode || "this area"}.
+                </p>
+                <Button
+                  onClick={() => router.push("/post-job")}
+                  className="bg-[#0a1f44] hover:bg-[#0a1f44]/90 text-white"
+                >
+                  Try a different search
+                </Button>
+              </div>
+            ) : tradespeople.map((tradesperson) => (
               <div
                 key={tradesperson.slug}
                 className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
@@ -930,7 +955,7 @@ export default function PostJobResults() {
             ))}
 
             {/* Pagination */}
-            {totalPages > 1 && (
+            {!loading && totalPages > 1 && (
               <div className="flex items-center justify-center gap-2 pt-6">
                 <Button
                   variant="outline"
