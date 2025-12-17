@@ -19,24 +19,78 @@ export default async function sitemap() {
     { url: `${baseUrl}/cost-guides`, lastModified: new Date(), priority: 0.8 },
     { url: `${baseUrl}/faq`, lastModified: new Date(), priority: 0.7 },
     { url: `${baseUrl}/blog`, lastModified: new Date(), priority: 0.7 },
+    { url: `${baseUrl}/locations`, lastModified: new Date(), priority: 0.8 },
   ];
 
-  // Fetch all tradespeople from Supabase
+  // Fetch all tradespeople from Supabase with location info
   const { data: tradespeople, error } = await supabase
     .from("tradespeople")
-    .select("url_path, updated_at");
+    .select("url_path, updated_at, tier1_slug, tier2_slug, costatrades_category");
 
   if (error) {
     console.error("Error fetching tradespeople for sitemap:", error);
     return staticPages;
   }
 
-  // Generate tradesperson pages
-  const tradespersonPages = tradespeople.map((tp) => ({
-    url: `${baseUrl}${tp.url_path}`,
-    lastModified: tp.updated_at ? new Date(tp.updated_at) : new Date(),
+  // Use Sets to collect unique location URLs (prevents duplicates)
+  const tier1Set = new Set<string>();
+  const tier2Set = new Set<string>();
+  const tradetypeSet = new Set<string>();
+  const tradespersonUrlSet = new Set<string>();
+
+  tradespeople.forEach((tp) => {
+    // Collect unique tier1 locations
+    if (tp.tier1_slug) {
+      tier1Set.add(`/locations/${tp.tier1_slug}`);
+    }
+    // Collect unique tier2 locations
+    if (tp.tier1_slug && tp.tier2_slug) {
+      tier2Set.add(`/locations/${tp.tier1_slug}/${tp.tier2_slug}`);
+    }
+    // Collect unique tradetype pages
+    if (tp.tier1_slug && tp.tier2_slug && tp.costatrades_category) {
+      tradetypeSet.add(`/locations/${tp.tier1_slug}/${tp.tier2_slug}/${tp.costatrades_category}`);
+    }
+    // Collect unique tradesperson pages (using url_path)
+    if (tp.url_path) {
+      tradespersonUrlSet.add(tp.url_path);
+    }
+  });
+
+  // Generate location hierarchy pages (high priority - hub pages)
+  const tier1Pages = Array.from(tier1Set).map((path) => ({
+    url: `${baseUrl}${path}`,
+    lastModified: new Date(),
+    priority: 0.9,
+  }));
+
+  const tier2Pages = Array.from(tier2Set).map((path) => ({
+    url: `${baseUrl}${path}`,
+    lastModified: new Date(),
+    priority: 0.85,
+  }));
+
+  const tradetypePages = Array.from(tradetypeSet).map((path) => ({
+    url: `${baseUrl}${path}`,
+    lastModified: new Date(),
     priority: 0.8,
   }));
 
-  return [...staticPages, ...tradespersonPages];
+  // Generate tradesperson pages (individual profiles)
+  const tradespersonPages = Array.from(tradespersonUrlSet).map((path) => ({
+    url: `${baseUrl}${path}`,
+    lastModified: new Date(),
+    priority: 0.7,
+  }));
+
+  // Log counts for debugging
+  console.log(`Sitemap: ${staticPages.length} static, ${tier1Pages.length} tier1, ${tier2Pages.length} tier2, ${tradetypePages.length} tradetype, ${tradespersonPages.length} tradesperson pages`);
+
+  return [
+    ...staticPages,
+    ...tier1Pages,
+    ...tier2Pages,
+    ...tradetypePages,
+    ...tradespersonPages,
+  ];
 }
