@@ -65,7 +65,8 @@ const similarJobs = [
 ];
 
 export default function TradespersonJobDetail() {
-  const { id } = useParams();
+  const params = useParams();
+  const id = params?.id ?? "1"; // Default to "1" for static/mock data
   const router = useRouter();
   const [quotePrice, setQuotePrice] = useState("");
   const [quoteMessage, setQuoteMessage] = useState(
