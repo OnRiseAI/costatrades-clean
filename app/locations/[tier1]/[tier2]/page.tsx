@@ -103,6 +103,33 @@ async function getLocationInfo(tier1: string, tier2: string) {
   return data || { tier1_name: tier1, tier2_name: tier2, latitude: 36.5, longitude: -4.88 };
 }
 
+async function getNearbyTowns(tier1: string, currentTier2: string) {
+  const { data, error } = await supabase
+    .from("tradespeople")
+    .select("tier2_slug, tier2_name")
+    .eq("tier1_slug", tier1)
+    .neq("tier2_slug", currentTier2);
+
+  if (error || !data) return [];
+
+  // Get unique towns with counts
+  const townCounts: Record<string, { name: string; count: number }> = {};
+  data.forEach((row) => {
+    if (row.tier2_slug && row.tier2_name) {
+      if (!townCounts[row.tier2_slug]) {
+        townCounts[row.tier2_slug] = { name: row.tier2_name, count: 0 };
+      }
+      townCounts[row.tier2_slug].count++;
+    }
+  });
+
+  // Sort by count and return top 8
+  return Object.entries(townCounts)
+    .map(([slug, info]) => ({ slug, name: info.name, count: info.count }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 8);
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -138,9 +165,10 @@ export default async function Tier2LocationPage({
 }) {
   const { tier1, tier2 } = await params;
 
-  const [categoryCounts, locationInfo] = await Promise.all([
+  const [categoryCounts, locationInfo, nearbyTowns] = await Promise.all([
     getCategoryCounts(tier1, tier2),
     getLocationInfo(tier1, tier2),
+    getNearbyTowns(tier1, tier2),
   ]);
 
   const totalTradespeople = Object.values(categoryCounts).reduce((a, b) => a + b, 0);
@@ -490,6 +518,48 @@ export default async function Tier2LocationPage({
           </div>
         </div>
       </div>
+
+      {/* Nearby Towns Section */}
+      {nearbyTowns.length > 0 && (
+        <div className="bg-gray-50 border-t border-gray-200">
+          <div className="container-custom py-12 md:py-16">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#0a1f44] mb-2">
+              Nearby Towns
+            </h2>
+            <p className="text-gray-600 mb-8">
+              Find tradespeople in other {locationInfo.tier1_name} locations
+            </p>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {nearbyTowns.map((town) => (
+                <Link
+                  key={town.slug}
+                  href={`/locations/${tier1}/${town.slug}`}
+                  className="group flex items-center justify-between p-4 bg-white rounded-xl border border-gray-200 hover:border-[#0a1f44] hover:shadow-md transition-all"
+                >
+                  <div className="flex items-center gap-3">
+                    <MapPin className="w-4 h-4 text-gray-400 group-hover:text-[#0a1f44] transition-colors" />
+                    <span className="font-medium text-[#0a1f44] group-hover:text-[#E31E24] transition-colors">
+                      {town.name}
+                    </span>
+                  </div>
+                  <span className="text-sm text-gray-400">{town.count} pros</span>
+                </Link>
+              ))}
+            </div>
+
+            <div className="text-center mt-8">
+              <Link
+                href={`/locations/${tier1}`}
+                className="inline-flex items-center gap-2 text-[#0a1f44] font-semibold hover:text-[#E31E24] transition-colors"
+              >
+                View all {locationInfo.tier1_name} locations
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* CTA Section */}
       <div className="relative bg-[#0a1f44] text-white overflow-hidden">

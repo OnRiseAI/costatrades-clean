@@ -42,6 +42,57 @@ import {
 import { useState, use } from "react";
 import { cn } from "@/lib/utils";
 
+// Related blog posts by trade category
+const relatedBlogPosts: Record<string, { slug: string; title: string; readTime: string }[]> = {
+  electrician: [
+    { slug: "electrician-costa-del-sol-guide", title: "Complete Guide to Hiring an Electrician on the Costa del Sol", readTime: "8 min" },
+    { slug: "solar-panels-worth-it-2025", title: "Are Solar Panels Worth It in Spain 2025?", readTime: "10 min" },
+  ],
+  plumber: [
+    { slug: "malaga-hard-water-boiler", title: "Malaga Hard Water & Your Boiler: Prevention Guide", readTime: "7 min" },
+    { slug: "emergency-plumber-costa-del-sol", title: "Finding an Emergency Plumber on the Costa del Sol", readTime: "6 min" },
+    { slug: "pool-water-update-2025", title: "Pool Water Regulations Update 2025", readTime: "5 min" },
+  ],
+  builder: [
+    { slug: "renovation-permits-andalucia-2025", title: "Renovation Permits in Andalucía 2025", readTime: "12 min" },
+    { slug: "renovating-older-villa-2025", title: "Renovating an Older Villa in 2025", readTime: "10 min" },
+    { slug: "bathroom-reform-permit", title: "Do You Need a Permit for Bathroom Reform?", readTime: "6 min" },
+  ],
+  painter: [
+    { slug: "painting-house-cost-spain-2025", title: "House Painting Costs in Spain 2025", readTime: "8 min" },
+    { slug: "stop-damp-mold-spain", title: "Stop Damp & Mold Spain: The 2025 Guide", readTime: "12 min" },
+  ],
+  "ac-repair": [
+    { slug: "air-conditioning-cost-spain-2025", title: "Air Conditioning Costs in Spain 2025", readTime: "9 min" },
+    { slug: "cleaning-calima-dust", title: "Cleaning Calima Dust: Protect Your Home", readTime: "5 min" },
+  ],
+  "pool-maintenance": [
+    { slug: "pool-maintenance-cost-spain-2025", title: "Pool Maintenance Costs Spain 2025", readTime: "8 min" },
+    { slug: "pool-water-update-2025", title: "Pool Water Regulations Update 2025", readTime: "5 min" },
+  ],
+  "solar-installation": [
+    { slug: "solar-panels-worth-it-2025", title: "Are Solar Panels Worth It in Spain 2025?", readTime: "10 min" },
+    { slug: "solar-panels-costa-del-sol-roi", title: "Solar Panels Costa del Sol: ROI Analysis", readTime: "8 min" },
+  ],
+  "bathroom-fitter": [
+    { slug: "bathroom-reform-permit", title: "Do You Need a Permit for Bathroom Reform?", readTime: "6 min" },
+    { slug: "renovation-permits-andalucia-2025", title: "Renovation Permits in Andalucía 2025", readTime: "12 min" },
+  ],
+  locksmith: [
+    { slug: "protecting-home-squatters-2025", title: "Protecting Your Home from Squatters 2025", readTime: "10 min" },
+  ],
+  gardener: [
+    { slug: "cleaning-calima-dust", title: "Cleaning Calima Dust: Protect Your Garden", readTime: "5 min" },
+  ],
+  handyman: [
+    { slug: "stop-damp-mold-spain", title: "Stop Damp & Mold Spain: The 2025 Guide", readTime: "12 min" },
+  ],
+  roofer: [
+    { slug: "stop-damp-mold-spain", title: "Stop Damp & Mold Spain: The 2025 Guide", readTime: "12 min" },
+    { slug: "renovation-permits-andalucia-2025", title: "Renovation Permits in Andalucía 2025", readTime: "12 min" },
+  ],
+};
+
 // Trade data configuration - 2025 Costa del Sol rates (+20% standard, +40% premium areas)
 const tradeData: Record<string, TradeGuide> = {
   electrician: {
@@ -2270,6 +2321,54 @@ export default function TradeCostGuidePage({ params }: { params: Promise<{ trade
           </div>
         </div>
       </section>
+
+      {/* ============ RELATED BLOG ARTICLES ============ */}
+      {relatedBlogPosts[trade.slug] && relatedBlogPosts[trade.slug].length > 0 && (
+        <section className="py-16 bg-slate-50 border-t border-slate-200">
+          <div className="container-custom">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl font-bold text-slate-900 mb-2 text-center">
+                Related Articles
+              </h2>
+              <p className="text-slate-500 text-center mb-8">
+                Learn more about {trade.title.toLowerCase()} services on the Costa del Sol
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {relatedBlogPosts[trade.slug].map((post) => (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="group flex items-start gap-4 p-4 bg-white rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                      <FileText className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-semibold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2 text-sm">
+                        {post.title}
+                      </h3>
+                      <p className="text-xs text-slate-400 mt-1 flex items-center gap-1">
+                        <Clock className="w-3 h-3" />
+                        {post.readTime} read
+                      </p>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-blue-500 transition-colors flex-shrink-0 mt-1" />
+                  </Link>
+                ))}
+              </div>
+              <div className="text-center mt-6">
+                <Link
+                  href="/blog"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700"
+                >
+                  View all articles
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 }

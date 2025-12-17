@@ -4372,6 +4372,47 @@ const blogPosts = {
   },
 };
 
+// Cost guides mapping for cross-linking (based on blog categories/topics)
+const costGuidesByCategory: Record<string, { slug: string; title: string; avgRate: string }[]> = {
+  "Maintenance": [
+    { slug: "plumber", title: "Plumber", avgRate: "€42/hr" },
+    { slug: "handyman", title: "Handyman", avgRate: "€36/hr" },
+    { slug: "ac-repair", title: "AC & Climate Control", avgRate: "€50/hr" },
+    { slug: "pool-maintenance", title: "Pool Maintenance", avgRate: "€110/mo" },
+  ],
+  "Legal/Permits": [
+    { slug: "builder", title: "Builder", avgRate: "€175/day" },
+    { slug: "electrician", title: "Electrician", avgRate: "€42/hr" },
+    { slug: "bathroom-fitter", title: "Bathroom Fitter", avgRate: "€7,200" },
+  ],
+  "Renovation": [
+    { slug: "builder", title: "Builder", avgRate: "€175/day" },
+    { slug: "painter", title: "Painter & Decorator", avgRate: "€36/hr" },
+    { slug: "tiler", title: "Tiler", avgRate: "€38/m²" },
+    { slug: "bathroom-fitter", title: "Bathroom Fitter", avgRate: "€7,200" },
+  ],
+  "Cost Guides": [
+    { slug: "electrician", title: "Electrician", avgRate: "€42/hr" },
+    { slug: "plumber", title: "Plumber", avgRate: "€42/hr" },
+    { slug: "painter", title: "Painter & Decorator", avgRate: "€36/hr" },
+    { slug: "ac-repair", title: "AC & Climate Control", avgRate: "€50/hr" },
+  ],
+  "Guide": [
+    { slug: "electrician", title: "Electrician", avgRate: "€42/hr" },
+    { slug: "plumber", title: "Plumber", avgRate: "€42/hr" },
+    { slug: "handyman", title: "Handyman", avgRate: "€36/hr" },
+  ],
+};
+
+// Helper to get related articles (same category first, then others)
+const getRelatedArticles = (currentSlug: string, currentCategory: string) => {
+  const allArticles = Object.entries(blogPosts).filter(([s]) => s !== currentSlug);
+  const sameCategory = allArticles.filter(([, p]) => p.category === currentCategory);
+  const otherCategory = allArticles.filter(([, p]) => p.category !== currentCategory);
+  // Return same category first, then fill with others, max 3
+  return [...sameCategory, ...otherCategory].slice(0, 3);
+};
+
 export default function BlogPostPage() {
   const router = useRouter();
   const { slug } = useParams();
@@ -4782,10 +4823,7 @@ export default function BlogPostPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {Object.entries(blogPosts)
-              .filter(([s]) => s !== slug)
-              .slice(0, 3)
-              .map(([articleSlug, p], i) => (
+            {getRelatedArticles(slug as string, post.category).map(([articleSlug, p], i) => (
                 <Link
                   href={`/blog/${articleSlug}`}
                   key={i}
@@ -4821,6 +4859,50 @@ export default function BlogPostPage() {
           </div>
         </div>
       </section>
+
+      {/* Related Cost Guides */}
+      {costGuidesByCategory[post.category] && (
+        <section className="bg-white py-16 px-4 border-t border-slate-100">
+          <div className="container-custom max-w-7xl mx-auto">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+              <div>
+                <p className="text-sm font-semibold text-green-600 uppercase tracking-wider mb-2">Pricing Info</p>
+                <h3 className="text-2xl md:text-3xl font-bold text-[#0a1f44]">
+                  Related Cost Guides
+                </h3>
+              </div>
+              <Link
+                href="/cost-guides"
+                className="group flex items-center gap-2 text-[#0a1f44] font-semibold hover:text-green-600 transition-colors"
+              >
+                View all cost guides
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {costGuidesByCategory[post.category].map((guide) => (
+                <Link
+                  href={`/cost-guides/${guide.slug}`}
+                  key={guide.slug}
+                  className="group flex items-center justify-between p-4 bg-slate-50 hover:bg-green-50 rounded-xl border border-slate-200 hover:border-green-300 transition-all"
+                >
+                  <div>
+                    <h4 className="font-semibold text-[#0a1f44] group-hover:text-green-700 transition-colors">
+                      {guide.title}
+                    </h4>
+                    <p className="text-sm text-slate-500">Cost Guide</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="font-bold text-green-600">{guide.avgRate}</p>
+                    <p className="text-xs text-slate-400">avg rate</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* MOBILE STICKY CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate-200 p-3 md:hidden shadow-[0_-4px_6px_rgba(0,0,0,0.1)]">

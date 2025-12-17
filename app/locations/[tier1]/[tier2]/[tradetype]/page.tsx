@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 import Link from "next/link";
-import { Star, MapPin, Phone, CheckCircle, Shield } from "lucide-react";
+import { Star, MapPin, Phone, CheckCircle, Shield, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
@@ -100,6 +100,34 @@ async function getLocationInfo(tier1: string, tier2: string) {
   return data || { tier1_name: tier1, tier2_name: tier2 };
 }
 
+async function getOtherLocationsWithTradetype(tier1: string, currentTier2: string, tradetype: string) {
+  const { data, error } = await supabase
+    .from("tradespeople")
+    .select("tier2_slug, tier2_name")
+    .eq("tier1_slug", tier1)
+    .eq("costatrades_category", tradetype)
+    .neq("tier2_slug", currentTier2);
+
+  if (error || !data) return [];
+
+  // Get unique towns with counts
+  const townCounts: Record<string, { name: string; count: number }> = {};
+  data.forEach((row) => {
+    if (row.tier2_slug && row.tier2_name) {
+      if (!townCounts[row.tier2_slug]) {
+        townCounts[row.tier2_slug] = { name: row.tier2_name, count: 0 };
+      }
+      townCounts[row.tier2_slug].count++;
+    }
+  });
+
+  // Sort by count and return top 6
+  return Object.entries(townCounts)
+    .map(([slug, info]) => ({ slug, name: info.name, count: info.count }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 6);
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -181,10 +209,11 @@ export default async function TradetypePage({
   params: Promise<PageParams>;
 }) {
   const { tier1, tier2, tradetype } = await params;
-  
-  const [tradespeople, locationInfo] = await Promise.all([
+
+  const [tradespeople, locationInfo, otherLocations] = await Promise.all([
     getTradespeople(tier1, tier2, tradetype),
     getLocationInfo(tier1, tier2),
+    getOtherLocationsWithTradetype(tier1, tier2, tradetype),
   ]);
 
   const categoryName = CATEGORY_DISPLAY[tradetype] || tradetype;
@@ -448,6 +477,55 @@ export default async function TradetypePage({
           ))}
         </div>
       </div>
+
+      {/* Other Locations Section */}
+      {otherLocations.length > 0 && (
+        <div className="bg-gray-50 border-t border-gray-200">
+          <div className="container-custom py-12">
+            <h2 className="text-xl font-bold text-[#0a1f44] mb-2">
+              Find {categoryName}s in Other Areas
+            </h2>
+            <p className="text-gray-600 mb-6">
+              Browse {categoryName.toLowerCase()}s across {locationInfo.tier1_name}
+            </p>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+              {otherLocations.map((location) => (
+                <Link
+                  key={location.slug}
+                  href={`/locations/${tier1}/${location.slug}/${tradetype}`}
+                  className="group flex items-center justify-between p-3 bg-white rounded-lg border border-gray-200 hover:border-[#0a1f44] hover:shadow-md transition-all"
+                >
+                  <div className="flex items-center gap-2 min-w-0">
+                    <MapPin className="w-3 h-3 text-gray-400 flex-shrink-0 group-hover:text-[#0a1f44]" />
+                    <span className="text-sm font-medium text-[#0a1f44] truncate group-hover:text-[#E31E24] transition-colors">
+                      {location.name}
+                    </span>
+                  </div>
+                  <span className="text-xs text-gray-400 flex-shrink-0 ml-2">{location.count}</span>
+                </Link>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-4 justify-center mt-6">
+              <Link
+                href={`/locations/${tier1}/${tier2}`}
+                className="inline-flex items-center gap-2 text-[#0a1f44] font-semibold text-sm hover:text-[#E31E24] transition-colors"
+              >
+                All trades in {locationInfo.tier2_name}
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href={`/cost-guides/${tradetype === 'painter-decorator' ? 'painter' : tradetype === 'air-conditioning' ? 'ac-repair' : tradetype}`}
+                className="inline-flex items-center gap-2 text-[#0a1f44] font-semibold text-sm hover:text-[#E31E24] transition-colors"
+              >
+                {categoryName} Cost Guide
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* CTA Section */}
       <div className="bg-[#0a1f44] text-white py-12">

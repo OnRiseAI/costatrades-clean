@@ -42,6 +42,7 @@ import {
 } from "@/components/ui/dialog";
 import { demoTradespeople, Tradesperson } from "@/data/tradespeople";
 import { SEO } from "@/components/SEO";
+import { supabase } from "@/lib/supabase";
 
 
 // Costa del Sol trade pricing by category (estimates, +30% adjusted)
@@ -188,7 +189,8 @@ export default function TradespersonProfile({
   const [loading, setLoading] = useState(!initialData);
   const [reviewPage, setReviewPage] = useState(0);
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
-  
+  const [similarProfessionals, setSimilarProfessionals] = useState<any[]>([]);
+
   // Create safe profile with all defaults applied
   // Filter out undefined values from profile so defaults are used
   const cleanProfile = profile ? Object.fromEntries(
@@ -287,6 +289,58 @@ export default function TradespersonProfile({
     setProfile(mockProfile);
     setLoading(false);
   }, [slug]);
+
+  // Fetch similar professionals from Supabase
+  useEffect(() => {
+    const fetchSimilarProfessionals = async () => {
+      if (!safeProfile.costatrades_category && !safeProfile.tradeCategorySlug) return;
+
+      const categorySlug = safeProfile.costatrades_category || safeProfile.tradeCategorySlug;
+      const tier1 = safeProfile.tier1_slug;
+
+      try {
+        // Try to get professionals in same category and region
+        let query = supabase
+          .from("tradespeople")
+          .select("slug, business_name, costatrades_category, tier2_slug, rating, review_count, url_path, profile_image_url")
+          .eq("costatrades_category", categorySlug)
+          .neq("slug", slug)
+          .limit(4);
+
+        // Filter by region if available
+        if (tier1) {
+          query = query.eq("tier1_slug", tier1);
+        }
+
+        const { data, error } = await query;
+
+        if (error) {
+          console.error("Error fetching similar professionals:", error);
+          return;
+        }
+
+        if (data && data.length > 0) {
+          setSimilarProfessionals(data);
+        } else {
+          // Fallback: get any professionals in same category
+          const { data: fallbackData } = await supabase
+            .from("tradespeople")
+            .select("slug, business_name, costatrades_category, tier2_slug, rating, review_count, url_path, profile_image_url")
+            .eq("costatrades_category", categorySlug)
+            .neq("slug", slug)
+            .limit(4);
+
+          if (fallbackData) {
+            setSimilarProfessionals(fallbackData);
+          }
+        }
+      } catch (err) {
+        console.error("Error in fetchSimilarProfessionals:", err);
+      }
+    };
+
+    fetchSimilarProfessionals();
+  }, [safeProfile.costatrades_category, safeProfile.tradeCategorySlug, safeProfile.tier1_slug, slug]);
 
   if (loading) {
     return (
@@ -1066,6 +1120,65 @@ export default function TradespersonProfile({
                 />
               </div>
             </section>
+
+            {/* SIMILAR PROFESSIONALS */}
+            {similarProfessionals.length > 0 && (
+              <section className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+                <div className="p-6 border-b border-gray-200">
+                  <h3 className="text-[#0a1f44] font-bold text-lg">
+                    Similar {safeProfile.tradeCategory}s in the Area
+                  </h3>
+                  <p className="text-sm text-gray-500 mt-1">Compare other verified professionals</p>
+                </div>
+                <div className="divide-y divide-gray-100">
+                  {similarProfessionals.map((pro) => (
+                    <Link
+                      key={pro.slug}
+                      href={pro.url_path || `/tradesperson/${pro.slug}`}
+                      className="flex items-center gap-4 p-4 hover:bg-slate-50 transition-colors"
+                    >
+                      <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                        {pro.profile_image_url ? (
+                          <img src={pro.profile_image_url} alt={pro.business_name} className="w-full h-full object-cover" />
+                        ) : (
+                          <User className="w-6 h-6 text-slate-400" />
+                        )}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-semibold text-[#0a1f44] text-sm truncate">
+                          {pro.business_name}
+                        </h4>
+                        <p className="text-xs text-gray-500 flex items-center gap-1">
+                          <MapPin className="w-3 h-3" />
+                          {pro.tier2_slug?.replace(/-/g, " ").replace(/\b\w/g, (l: string) => l.toUpperCase()) || "Costa del Sol"}
+                        </p>
+                      </div>
+                      <div className="text-right flex-shrink-0">
+                        {pro.rating && (
+                          <div className="flex items-center gap-1 text-sm">
+                            <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                            <span className="font-semibold text-[#0a1f44]">{pro.rating.toFixed(1)}</span>
+                          </div>
+                        )}
+                        {pro.review_count > 0 && (
+                          <p className="text-xs text-gray-400">{pro.review_count} reviews</p>
+                        )}
+                      </div>
+                      <ChevronRight className="w-4 h-4 text-gray-300" />
+                    </Link>
+                  ))}
+                </div>
+                <div className="p-4 bg-slate-50 border-t border-gray-100">
+                  <Link
+                    href={`/trades/${safeProfile.tradeCategorySlug || safeProfile.costatrades_category}`}
+                    className="text-sm font-semibold text-[#0066CC] hover:underline flex items-center justify-center gap-1"
+                  >
+                    View all {safeProfile.tradeCategory}s
+                    <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </section>
+            )}
           </div>
 
           {/* RIGHT COLUMN (The Sticky Sidebar) */}
